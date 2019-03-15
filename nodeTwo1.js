@@ -14,7 +14,7 @@ var server = http.createServer((req, res) => {
         var num=reg.exec(req.url)[1];
         fs.readFile("./db.json",function (err,data) {
             if (err){
-                res.end("获取文件列表失败")
+                res.end("获取文件列表失败");
                 return;
             }else {
                 // 转为对象，注意用readFile读取进来的文件一定要toString()一下
