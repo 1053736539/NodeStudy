@@ -11,6 +11,7 @@
       <div class="_right">2019-02-13 12:00:00</div>
     </div>
 
+
     <div class="platform_body">
 
       <div class="_left_slide">
