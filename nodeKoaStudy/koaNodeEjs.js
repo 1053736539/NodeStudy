@@ -4,6 +4,7 @@ var views = require('koa-views');
 var bodyParser = require('koa-bodyparser');
 var Static = require('koa-static');
 
+var MongoDb=require('./module/db.js');
 
 var app = new koa();
 var router = new Router();
