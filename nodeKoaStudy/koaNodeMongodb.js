@@ -15,7 +15,7 @@ MongoClint.connect(dbUrl, (err, client) => {
     } else {
         var db = client.db(dbName);
         db.collection('user').insertOne({
-            'username': "张三22",
+            'username': "李四",
             'age': 26,
             'sex': "男",
             'status': "1"
@@ -33,12 +33,12 @@ MongoClint.connect(dbUrl, (err, client) => {
 //     console.log(data.result);
 //     ctx.body = "这是食品业"
 // });
-
-router.get('/edit', async (ctx) => {
-    let data = await MongoDb.updata('user', {"username":"张三22"},{"username":"李四"});
-    console.log(data.result);
-    ctx.body = "这是食品业"
-});
+//
+// router.get('/edit', async (ctx) => {
+//     let data = await MongoDb.updata('user', {"username":"张三22"},{"username":"李四"});
+//     console.log(data.result);
+//     ctx.body = "这是食品业"
+// });
 
 
 
