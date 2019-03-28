@@ -1,0 +1,2 @@
+<!--pages/cards/member_rules/member_rules.wxml-->
+<image class='img_rules' src='/Resource/images/Card/rules.png' mode="widthFix"></image>

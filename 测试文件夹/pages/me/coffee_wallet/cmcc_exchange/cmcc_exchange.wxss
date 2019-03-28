@@ -1,0 +1,78 @@
+/* pages/me/coffee_wallet/cmcc_exchange/cmcc_exchange.wxss */
+
+.view_input_bg {
+  display: block;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  height: 50px;
+  margin: 10px 15px;
+}
+
+.ipt_phone {
+  font-size: 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+  float: left;
+  height: 50px;
+}
+
+.ipt_code {
+  font-size: 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+  float: left;
+  height: 50px;
+}
+
+.placeholder {
+  font-size: 16px;
+  color: #999999;
+}
+
+.text_get_verify {
+  font-size: 14px;
+  color: #333333;
+  float: right;
+  line-height: 50px;
+  margin-right: 15px;
+}
+
+.text_get_verify.disable {
+  color: #666666;
+}
+
+.btn_exchange {
+  width: 260px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 44px;
+  color: #fff;
+  background-color: #444444;
+  border-radius: 22px;
+  margin-top: 50px;
+}
+
+/* 描述 */
+.view_header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #FFFFFF;
+  font-weight: 500;
+}
+
+.txt_name {
+  font-size: 20px;
+  color: #333333;
+  padding-bottom: 20px;
+  font-weight: 500;
+}
+
+.txt_detail {
+  font-size: 12px;
+  color: #999999;
+  padding-bottom: 30px;
+  font-weight: 400;
+}

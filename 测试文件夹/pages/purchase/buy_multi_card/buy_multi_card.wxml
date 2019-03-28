@@ -1,0 +1,80 @@
+<!--pages/purchase/buy_multi_card/buy_multi_card.wxml-->
+<view class="container">
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!isLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{isLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="view_card_header">
+      <text class="txt_name">{{cardGroupInfo.name}}</text>
+      <text class="txt_detail">{{cardGroupInfo.description}}</text>
+    </view>
+    <template is="temp_card" data="{{cardIns, index, sel_count, maxUsableQty, domain}}"></template>
+
+    <view class="view_instruction">
+      <text class="txt_instruction">购买说明</text>
+      <text class="txt_instruction_info">{{cardGroupInfo.instructions}}</text>
+    </view>
+    <view class='view_purchase'>
+      <view class='view_amount'>
+        <text class='txt_amount_tip'>共：</text>
+        <text class='txt_amount'>{{totalAmount}}元</text>
+      </view>
+      <view class="btn_purchase {{maxUsableQty<=0? 'disabled': ''}}" bindtap='tapPurchase'>
+        <text class='txt_purchase'>购买</text>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!--蒙层-->
+<view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+</view>
+<!--弹窗内容-->
+<view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+  <view class="view_item">
+    <text class="txt_prefix">+86</text>
+    <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+  </view>
+
+  <view class="view_item">
+    <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+    <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+  </view>
+  <button class="btn_verify" bindtap="didTapValidate">验证</button>
+</view>
+
+
+<!-- 模板 -->
+<template name="temp_card">
+  <view class="view_card">
+    <view class='view_card_container'>
+      <view class="img_container">
+        <image class="img_card" src="{{domain}}{{cardIns.imgurl1}}"></image>
+        <view class="sellOut" wx:if="{{maxUsableQty<=0}}">
+          <image src="../../../Resource/images/mall/sellOut.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="view_card_detail">
+      <text class="txt_card_title {{maxUsableQty<=0? 'disable': ''}}">{{cardIns.name}}</text>
+      <!-- <text class="txt_card_desc">{{cardIns.cardintroduce}}</text> -->
+      <text class="txt_card_price {{maxUsableQty<=0? 'disable': ''}}">{{cardIns.showPrice}}元</text>
+      <text class="txt_card_unit"> /份</text>
+    </view>
+
+    <view class="view_card_price">
+      <text class='txt_count'>购买数量：</text>
+      <view class='view_count'>
+        <view class="view_calculate  {{sel_count<=1? 'disabled': ''}}" bindtap='tapMinus'>-</view>
+        <view class='view_sel_count'>{{sel_count}}</view>
+        <view class="view_calculate {{maxUsableQty<=sel_count? 'disabled': ''}}" bindtap='tapAdd'>+</view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,76 @@
+<!--pages/wallet/use_ticket/use_ticket.wxml-->
+<view class="list_container">
+  <block wx:if="{{isCardLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!cardLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{cardLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{cardLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{cardLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="allActivity">
+      <view class="header">
+        <text class="name">{{card.name}}</text>
+        <text class="introduction">{{card.cardStockInfo.introduce}}</text>
+        <text class="time">使用有效期：{{card.createtime}} 至 {{card.expirationdate}}</text>
+      </view>
+      <!-- 券详情 -->
+      <view class="cell_ticket_container">
+        <view class="cell_ticket" bindtap="tapShowQrcode">
+          <view class='left_container'>
+            <image class='img_ticket' src='{{img_url}}'></image>
+          </view>
+          <view class='right_container'>
+            <view class='text_container'>
+              <block wx:if="{{card.cardStockInfo.spec}}">
+                <text class='txt_title'>{{card.name}}-{{card.cardStockInfo.spec}}</text>
+              </block>
+              <block wx:else>
+                <text class='txt_title'>{{card.name}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class="scan" wx:if="{{card.status == 1}}" bindtap="tapShowQrcode">
+          <image src="../../../Resource/images/wallet/scan.png"></image>
+          <text>点击扫一扫</text>
+        </view>
+      </view>
+      <view class="buttonBox">
+        <text>({{card.statusValue}})</text>
+        <button class='btn_give' wx:if="{{card.status == 1}}" bindtap="tapShowQrcode">立即使用</button>
+        <!-- 只有员工券可以赠送 -->
+        <block wx:if="{{canGift}}">
+          <button class="btn_give" bindtap="didTapGive">赠送朋友</button>
+        </block>
+      </view>
+      <button wx:if="{{card.status!=1}}" class='btn_give' bindtap='tapDeleteCard' hidden='{{card.status == 4}}'>删除卡片</button>
+      <view class='view_gift' wx:if="{{card.status == 4}}">等待朋友领取</view>
+      <view class='view_gift_tip' wx:if="{{card.status == 4}}">若24小时后未被领取，卡片会退回您的卡包</view>
+    </view>
+    <!-- 点击领取弹窗 -->
+    <!--蒙层-->
+    <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}"></view>
+    <view class="drawer_attr_box" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+      <view class=" clickReceive">
+        <view class="view_barCode">
+          <view class="barnum">{{code}}</view>
+        </view>
+        <view class="view_qrcode">
+          <canvas canvas-id="qrcode" />
+        </view>
+        <view class="scanCode">扫一扫 即可兑换</view>
+      </view>
+    </view>
+    <view class="close" animation="{{animationData}}" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+      <image src="../../../Resource/images/wallet/close.png"></image>
+    </view>
+    <!-- 使用说明 -->
+    <view class="view_product">
+      <text class="txt_instruction">使用说明</text>
+      <text class="txt_product_info">{{card.cardStockInfo.instructions}}</text>
+    </view>
+  </block>
+</view>

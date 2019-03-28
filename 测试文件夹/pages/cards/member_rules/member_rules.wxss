@@ -1,0 +1,6 @@
+/* pages/cards/member_rules/member_rules.wxss */
+.img_rules {
+  width: 100%;
+  margin: 0;
+  display: block;
+}

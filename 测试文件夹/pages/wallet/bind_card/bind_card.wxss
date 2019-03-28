@@ -1,0 +1,62 @@
+/* pages/wallet/bind_card/bind_card.wxss */
+@import "/pages/public/loading.wxss";
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.ipt_card {
+  border: 1px solid #444444;
+  border-radius: 4px;
+  margin-top: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  height: 40px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.btn_bind {
+  margin-top: 20px;
+  width: 260px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 44px;
+  color: #fff;
+  background-color: #444444;
+  border-radius: 22px;
+}
+
+.view_product {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.view_product .txt_product_info {
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.view_product .txt_instruction {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #333;
+}

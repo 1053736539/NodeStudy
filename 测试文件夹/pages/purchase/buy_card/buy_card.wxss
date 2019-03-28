@@ -1,0 +1,160 @@
+/* buy_card.wxss */
+@import "/pages/public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.buy_card_header {
+  padding: 20px 0px;
+  margin: 0 20px;
+}
+
+.buy_card_header .buy_card_text {
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.buy_card_header .txt_card_desc {
+  margin-top: 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+.buy_card_header text, .buy_drink_card text {
+  display: block;
+}
+
+.buy_drink_card .drink_card text {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.buy_drink_card {
+  margin: 0px 0px 0px 0px;
+}
+
+.buy_drink_card .drink_card {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box;
+}
+
+
+.buy_drink_card .drink_card .drink_card_img {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 63%;
+  height: 0px;
+  border-radius: 10px;
+}
+
+.buy_drink_card .drink_card .drink_card_img .img_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sellOut {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 998;
+}
+
+.sellOut image {
+  position: absolute;
+  width: 50px !important;
+  height: 50px !important;
+  left: 50%;
+  top: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+.buy_drink_card .drink_card .drink_name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 15px;
+}
+
+.buy_drink_card .drink_card .drink_detail {
+  font-size: 10px;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buy_drink_card .drink_card .view_price {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.buy_drink_card .drink_card .drink_price {
+  color: #dd4d4e;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.buy_drink_card .drink_card .drink_unit {
+  font-size: 12px;
+  color: #dd4d4e;
+  font-weight: 500;
+  align-self: flex-end;
+}
+
+.buy_card_footerFalse {
+  width: 100%;
+  height: 50px;
+}
+
+.view_instruction {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.view_instruction .txt_instruction {
+  padding-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+}
+
+.view_instruction .txt_instruction_info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+

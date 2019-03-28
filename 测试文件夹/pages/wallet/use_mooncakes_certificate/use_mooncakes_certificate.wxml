@@ -1,0 +1,38 @@
+<!--pages/wallet/use_mooncakes_certificate/use_mooncakes_certificate.wxml-->
+<scroll-view scroll-y>
+  <view class='pad_b40'>
+    <view class='flex_c_c pad_t60'>
+      <view class='w_670 h_425 bg_black radius_10 '>
+        <!-- <image src='src="../../../Resource/images/wallet/scan.png"' /> -->
+      </view>
+    </view>
+    <!-- 预约成功 -->
+    <view>
+      <view class='flex_c_c font_40 bold color_3 pad_t30'>（可预约）</view>
+      <view class='pad_r30 pad_l30 top_60'>
+        <view class='font_36 bold color_3'>预约信息</view>
+        <view class='font_24 color_9 pad_t20'>城市（门店）</view>
+        <view class='font_28 color_0 pad_t10' style='font-weight:400;'>西南区昆明市同德广场店</view>
+        <view class='font_24 color_9 pad_t20'>兑换时间</view>
+        <view class='font_28 color_0 pad_t10' style='font-weight:400;'>03月20日</view>
+      </view>
+    </view>
+    <!-- 预约失效 -->
+    <view class='' wx:if="{{filShow}}">
+      <view class='flex_c_c font_40 bold color_3 pad_t30'>（已失效）</view>
+      <view class='flex_c_c pad_t40'>
+        <view class='whitebg color_4 bo font_32 w_520 flex_c_c pad_t25 pad_b25 radius_50'>删除卡片</view>
+      </view>
+    </view>
+    <!-- 过渡线 -->
+    <view class='flex_c_c pad_t40 bottom_40'>
+      <view style='width:690rpx;height:2rpx;background:#F5F5F5;'></view>
+    </view>
+    <view class='pad_r30 pad_l30'>
+      <view class='font_36 bold color_3'>月饼礼卡</view>
+      <view class='font_24 color_9 pad_t20'>使用有效期：2017-06-06 至 2020-06-06</view>
+      <view class='font_36 bold color_3 pad_t60'>兑换须知</view>
+      <view class='font_24 color_9 pad_t20'>兑换须知兑换须知兑换须知兑换须知兑换须知兑换须知兑换须知 兑换须知</view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,99 @@
+<view class="container">
+  <block wx:if="{{!isLogin}}">
+    <!-- 未登录 -->
+    <!-- 提示 -->
+    <image class='img_not_login' src='/Resource/images/not_login.png'></image>
+    <text class="txt_not_login" >欢迎使用  麦隆咖啡  小程序</text>
+
+    <!-- 登录按钮 -->
+    <view class="view_login">
+      <button class="btn_login" bindtap="showLoginAlert">登录 / 注册</button>
+    </view>
+  </block>
+  <block wx:else>
+    <!-- 已登录 -->
+    <block wx:if="{{isListLoading}}">
+      <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadCouponList" wx:if="{{listLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <!-- 加载完成 -->
+    <block wx:else>
+      <view class="view_header">
+        <text class="txt_name">什么是 「咖啡红包」？</text>
+        <text class="txt_detail">咖啡红包是 麦隆咖啡Mellower Coffee+ 小程序发放和认可的代金券，可在小程序下单时使用，可抵扣相应的金额。咖啡红包不设找零，不能兑换为现金。</text>
+      </view>
+      <view class="view_header view_none_line">
+        <text class="txt_name">「咖啡红包」的使用条件？</text>
+        <text class="txt_detail">（1）仅限小程序内下单可用；
+        （2）红包有使用品类、金额限制，满足条件即可使用；
+        （3）每个订单只能使用一个咖啡红包。</text>
+      </view>
+      <view class="view_header view_none_line view_exchange">
+        <button class='btn_exchange' bindtap='didTapExchange'>兑换红包</button>
+        <image class='img_explain' src='/Resource/images/coffee_wallet/explain.png'></image>
+      </view>
+
+      <view class='view_can_use'>
+        <text class='txt_can_use_num'>{{couponQty}}</text>
+        <text class="txt_description">个咖啡红包可用</text>
+      </view>
+
+      <view class='view_coupon_container'>
+        <block wx:for="{{couponGroupList}}">
+          <template is="temp_discount_coupon" data="{{item, index}}"></template>
+        </block>
+        <view class="view_bottom_tipMsg" wx:if="{{couponWxRefreshFtInfo.searchLoadingComplete || isListEmpty}}">
+          <view class='view_tipMsg_top' bindtap='checkExpiredCoupons'>查看过期券 ></view>
+        </view>
+      </view>
+
+      <view class="loading" hidden="{{!couponWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+      <!-- <view class="loading complete" hidden="{{!couponWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view> -->
+
+    </block>
+  </block>
+</view>
+
+<!--登录蒙层-->
+<view class="view_mask" bindtap="closeLoginAlert" wx:if="{{canShowAlert}}">
+</view>
+<!--登录弹窗内容-->
+<view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+  <view class="view_item">
+    <text class="txt_prefix">+86</text>
+    <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+  </view>
+
+  <view class="view_item">
+    <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+    <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+  </view>
+  <button class="btn_verify" bindtap="didTapValidate">验证</button>
+</view>
+
+<!-- 模板 -->
+<template name='temp_discount_coupon'>
+  <view class="view_discount_coupon">
+    <view class='view_left_container'>
+      <view class='view_left_top'>
+        <text class='text_left_top_data'>{{item.coupondefine.amount}}</text>
+        <text class='text_left_top_unit'>元</text>
+      </view>
+      <text class='text_left_bottom'>满{{item.coupondefine.speedamount}}元可用</text>
+    </view>
+    <!-- <view class='view_center_container'>
+      <view class='view_top_circle'></view>
+      <view class='ciew_center_line'></view>
+      <view class='view_bottom_circle'></view>
+    </view> -->
+    <view class='view_right_container'>
+      <view class='view_right_top'>{{item.itemName}}</view>
+      <view class='view_right_center'>{{item.itemDateString}}</view>
+      <view class='view_right_bottom'>{{item.itemDescription}}</view>
+    </view>
+  </view>
+</template>

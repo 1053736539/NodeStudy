@@ -1,0 +1,36 @@
+<!--pages/me/pos_order/pos_order.wxml-->
+<view class="container">
+  <view class="list_container">
+    <!-- 加载中 -->
+    <block wx:if="{{isListLoading}}">
+      <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadPosOrderList" wx:if="{{listLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <!-- 加载完成 -->
+    <block wx:else>
+
+      <!-- 列表为空 -->
+      <image class='img_empty' src='/Resource/images/empty.png' wx:if="{{isListEmpty}}"></image>
+      <text class="txt_tip_msg" wx:if="{{isListEmpty}}">这里是空的</text>
+
+      <view class='view_order_item' wx:for="{{orderList}}" bindtap='tapPosOrderDetail' data-order='{{item}}'>
+        <view class='view_order_top'>
+          <image class='img_icon' src='/Resource/images/Me/shop.png'></image>
+          <text class='txt_title'>{{item.shopname}}</text>
+          <text class='txt_amount'>实付：{{item.showamount}}元</text>
+        </view>
+        <view class='view_order_bottom'>
+          <text class='txt_time'>{{item.time}}</text>
+        </view>
+      </view>
+
+      <view class='view_space'></view>
+      <view class="loading" hidden="{{!orderWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!orderWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view>
+    </block>
+  </view>
+</view>

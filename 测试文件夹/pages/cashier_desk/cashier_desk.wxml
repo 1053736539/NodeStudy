@@ -1,0 +1,129 @@
+<!--cashier_desk.wxml-->
+
+<view class="container">
+  <view class="backColor">
+    <!-- 头部 -->
+    <view class="cashierBack" wx:if="{{paymentInfo.type==3}}">请在1分钟内完成支付，逾期订单将取消</view>
+    <view class="cashierBack" wx:else>请在30分钟内完成支付，逾期订单将取消</view>
+
+    <view class="spaceBack"> </view>
+    <view class="cashierDetails">
+      <view class="cashierDetaFont">订单信息</view>
+      <!-- 商品列表 -->
+      <block wx:for="{{paymentInfo.itemList}}">
+        <template is="orderDetail" data="{{item}}"></template>
+      </block>
+      <view class='view_spacing'>
+        <!-- <view class='view_left_circle'></view> -->
+        <view class='ciew_center_line' size="1"></view>
+        <!-- <view class='view_right_circle'></view> -->
+      </view>
+      <view class='view_coupon_choose' bindtap='didTapChooseCoupon'>
+        <text class="txt_left_item">咖啡红包</text>
+        <block wx:if="{{isBindcoupon}}">
+          <text class="txt_center_item txt_center_item_discount">-{{couponInfo.amount}}元</text>
+        </block>
+        <block wx:else>
+          <text class="txt_center_item" wx:if="{{couponQty == 0}}">{{couponQty}}张可用</text>
+          <text class="txt_center_item txt_center_item_discount" wx:if="{{couponQty != 0}}">{{couponQty}}张可用</text>
+        </block>
+        <view class="view_right_item">
+          <image src='/Resource/images/cashier/arrow_right.png'></image>
+        </view>
+      </view>
+      <view class='view_spacing'>
+        <!-- <view class='view_left_circle'></view> -->
+        <view class='ciew_center_line'></view>
+        <!-- <view class='view_right_circle'></view> -->
+      </view>
+      <view class='view_allamount'>
+        <view class='view_text'>
+          <text class='txt_allamount'>合计： </text>
+          <text class='txt_unit'>{{totalDiscountPrice}}元</text>
+        </view>
+      </view>
+
+    </view>
+    <!-- 支付方式 -->
+    <view class="cashierDetails view_paymentDetails">
+      <view class="payment">
+        <view class="paymentChance">支付方式</view>
+        <template is="paymentMode" wx:for="{{paymentInfo.paymentData.payType}}" data="{{item, index, paymentIndex, userInfo}}"></template>
+      </view>
+    </view>
+    <!-- 支付按钮 -->
+    <view class="view_purchase">
+      <view class='view_amount'>
+        <text class='txt_amount_tip'>共：</text>
+        <text class='txt_amount'>{{totalDiscountPrice}}元</text>
+      </view>
+      <view class="btn_purchase" data-status="1" bindtap='clickGoPayment'>
+        <text class='txt_purchase'>支付</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 余额支付弹窗 -->
+<view class="drawer_screen" bindtap="setElecModalStatus" data-status="0" wx:if="{{showElecModalStatus}}"></view>
+<view animation="{{elecAnimationData}}" class="drawer_pay_box" wx:if="{{showElecModalStatus}}">
+  <view class="drawer_attr_content">
+    <view class="pay_head">
+      <text class='pay_head_text'>支付详情</text>
+      <image class='pay_drawer_close' bindtap='didTapCloseElecPay' data-status="0" src='/Resource/images/mall/cancel.png'></image>
+    </view>
+    <view class='view_pay_item'>
+      <template is="pay_item" data="{{pay_title:'账户余额', spe:'1', amount:paymentInfo.paymentData.electronicAccount.balance}}"></template>
+      <view class='view_windows_line'></view>
+      <template is="pay_item" data="{{pay_title:'订单金额', spe:'2', amount:totalDiscountPrice}}"></template>
+      <view class='view_windows_line'></view>
+      <template is="pay_item" data="{{pay_title:'需付金额', spe:'3', amount:totalDiscountPrice}}"></template>
+      </view>
+      <view class="paymoney" bindtap="didTapElecPay" data-status="0" wx:if="{{showElecModalStatus}}">
+      <button bindtap=''>确认支付</button>
+    </view>
+  </view>
+</view>
+
+<!-- 模板 -->
+<!-- 商品详情 -->
+<template name="orderDetail">
+  <view class="view_goods">
+    <view class="view_goodsDetails">
+      <text class="view_name">{{item.name}}</text>
+      <text class="view_qty">x{{item.qty}}</text>
+      <text class="view_introduce">{{item.price}}元</text>
+    </view>
+    <view class="goodsIns" wx:if="{{item.spec}}">{{item.spec}}</view>
+  </view>
+</template>
+<!-- 付款方式 -->
+<template name="paymentMode">
+  <view class="paymentMode" bindtap="clickPayMent" data-index="{{index}}">
+    <view class="paymentModeDetails">
+      <view class="circular">
+        <block wx:if="{{item.number == '1002'}}">
+          <image src="../../Resource/images/cashier/weixin.png"></image>
+        </block>
+        <block wx:if="{{item.number == '1005'}}">
+          <image src="../../Resource/images/cashier/balance.png"></image>
+        </block>
+      </view>
+      <view class="font">{{item.name}}</view>
+      <view class="chance">
+        <image src="{{index === paymentIndex? '../../Resource/images/mall/selected.png': '../../Resource/images/mall/rest.png'}}"></image>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+<!-- 支付详情item -->
+<template name="pay_item">
+  <view style='height:50px;width:750rpx;display:flex;'>
+    <view class="pay_item_view {{spe=='3'? 'spe': ''}}">
+      <text style='line-height:50px;font-size:14px;font-weight: 500;color:#333;'>{{pay_title}}</text>
+      <text class="need_pay {{spe=='3'? 'need_pay_amount': ''}}">{{amount}}元</text>
+    </view>
+  </view>
+</template>

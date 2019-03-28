@@ -1,0 +1,109 @@
+/* pages/me/logistics/logistics.wxss */
+@import "../../public/loading.wxss";
+.list_container {
+  margin-top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+.logisticsBox{
+  margin:0 20px;
+  margin-bottom:40px;
+}
+.logisticsBox .header{
+  margin:20px 0 0px 0;
+  position: relative;
+  min-height:87px;
+}
+.logisticsBox .header .img{
+  position: absolute;
+  height: 87px;
+  width:110px;
+  left: 0px;
+  top: 0px;
+}
+.logisticsBox .header .img image , .logisticsBox .header .img .amount{
+  position: absolute;
+  height:100%;
+  width: 100%;
+}
+.logisticsBox .header .img .amount{
+  left: 0px;
+  bottom: 0px;
+  height: 20px !important;
+  color: #fff;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 20px;
+  
+}
+.logisticsBox .header .logisti{
+  position: absolute;
+  left: 120px;
+}
+.logisticsBox .header .logisti text{
+  display: block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+
+}
+.logisticsBox .header .logisti .status{
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.logisticsBox .header .logisti .status .red{
+  color: #ff4848;
+  display: inline;
+}
+.logisticsBox .header .logisti .gray{
+  color:#999;
+  font-size: 12px;
+}
+.logisticsBox .header .logisti .distance{
+  margin-bottom: 10px;
+}
+.detailBox{
+  margin-top: 40px;
+  width: 100%;
+  height: auto;
+}
+.detailBox .detail{
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-left: 1px solid #D6D6D6; 
+}
+.detailBox .detail.newest::before , .detailBox .detail.past::before{
+  position: absolute;
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color:#D6D6D6;
+  left: -4px;
+  top:-5px; 
+}
+.detailBox .detail.newest::before{
+  height: 12px;
+  width: 12px;
+  background-color: #282625 ;
+  left: -6px;
+}
+.detailBox .detail .record{
+  margin-left:15px;
+}
+.detailBox .detail .record text{
+  display: block;
+  margin-bottom:10px;
+  color: #333;
+  font-size: 14px;
+}
+.detailBox .detail .record text:last-child{
+  color:#999;
+  padding-bottom:40px;
+}

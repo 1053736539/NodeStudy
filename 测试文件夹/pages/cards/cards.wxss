@@ -1,0 +1,213 @@
+/* cards.wxss */
+@import "../../utils/loginManager/loginMgr.wxss";
+
+page {
+  background-color: #fff;
+}
+
+.img_not_login{
+  margin-top: 0;
+}
+/*会员等级信息*/
+
+.view_level_container {
+  display:flex;
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  height:0px;
+  padding-bottom: 494rpx;
+  background-color: #F0F0F0;
+  margin-bottom: 21px;
+}
+
+.img_not_loading_banner{
+  display:inline-block;
+  height: 74px;
+  width: 145px;
+  margin: 0 auto;
+  margin-top: 87px;
+}
+
+.main_swiper {
+  margin-top: 1px;
+  width: 100%;
+  height: 492rpx;
+  border-radius: 5px;
+
+}
+
+.slide-image{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.main_swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+     margin-bottom: 30rpx;
+}
+
+
+/* 会员信息 */
+.view_card_info{
+  width: auto;
+  height: 556rpx;
+  position: absolute;
+  top: 456rpx;
+  left: 30rpx;
+  right:30rpx;
+  border-radius: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  box-shadow:0 4px 8px RGBA(0, 0, 0, 0.13);
+}
+
+.view_card_info_iPhoneX{
+  height: 640rpx;
+}
+
+.btn_qrcode{
+  position: absolute;
+  width: 340rpx;
+  height: 96rpx;
+  background-image: linear-gradient(to top, #444444, #797979);
+  box-shadow: 0 3px 6px  RGBA(0, 0, 0, 0.23);
+  border-radius: 24px;
+  line-height: 96rpx;
+  z-index: 2;
+  top: 962rpx;
+  left: 50%;
+  margin-left: -170rpx;
+  text-align: center;
+
+}
+
+.btn_qrcode_iPhoneX{
+  top: 1046rpx;
+}
+
+.img_my_qrcode{
+  display: inline-block;
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 20rpx;
+  margin-top: 28rpx;
+  line-height: 96rpx;
+}
+
+.txt_my_qrcode{
+  display: inline-block;
+  font-size: 16px;
+  color: #ffffff;
+  transform: translateY(-6rpx);
+}
+
+.view_member_tail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_member{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 27px;
+}
+
+.view_member_iPhoneX{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.img_member{
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  margin-right: 6px;
+  line-height: 42px;
+}
+
+.txt_member{
+  display: inline-block;
+  font-size: 30px;
+  color: #333333;
+  line-height: 42px;
+  font-family: "PingFangSC";
+  font-weight: 700;
+}
+
+.view_gold_dis{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.view_points_balance {
+  display: flex;
+  background-color: #2e2e2e;
+  height: 45px;
+  align-items: center;
+}
+
+.img_gold_dis{
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  line-height: 42px;
+}
+
+.txt_gold_dis{
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+  color:  #999999;
+  line-height: 20px;
+  font-family: PingFangSC;
+}
+
+.view_account{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 80rpx;
+  width: 100%;
+}
+
+.account_item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+}
+
+.img_account_item_logo{
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  line-height: 42px;
+}
+
+.txt_account_item_data{
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  color:  #666666;
+}
+
+.txt_account_item_sort{
+  display: inline-block;
+  font-size: 12px;
+  color:  #666666;
+}
+
+
+
+

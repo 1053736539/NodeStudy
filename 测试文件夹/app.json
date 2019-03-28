@@ -1,0 +1,98 @@
+{
+  "pages": [
+    "pages/me/me/me",
+    "pages/wallet/use_appointment_card/use_appointment_card",
+    "pages/wallet/use_appointment_success/use_appointment_success",
+    "pages/wallet/use_mooncakes_certificate/use_mooncakes_certificate",
+    "pages/wallet/use_appointment_form/use_appointment_form",
+    "pages/cards/cards",
+    "pages/wallet/wallet",
+    "pages/mall/mall",
+    "pages/me/bind_card/bind_card",
+    "pages/me/order/order_list",
+    "pages/me/order/order_tail/order_tail",
+    "pages/me/order/machine_order_tail/machine_order_tail",
+    "pages/purchase/buy_balance/buy_balance",
+    "pages/purchase/buy_card/buy_card",
+    "pages/purchase/buy_card/card_spec_choice/card_spec_choice",
+    "pages/purchase/buy_multi_card/buy_multi_card",
+    "pages/wallet/use_balance_card/use_balance_card",
+    "pages/wallet/use_balance_card/rechargeSucc/rechargeSucc",
+    "pages/wallet/use_gift_card/use_gift_card",
+    "pages/wallet/use_activity_card/use_activity_card",
+    "pages/cashier_desk/cashier_desk",
+    "pages/cashier_desk/voucher/voucher",
+    "pages/cashier_desk/available_coupon/available_coupon",
+    "pages/cards/giftCard/giftCard",
+    "pages/cards/receive/receive",
+    "pages/cards/receive/receiveSuccess/receiveSuccess",
+    "pages/me/logistics/logistics",
+    "pages/wallet/use_ticket/use_ticket",
+    "pages/cards/member_rules/member_rules",
+    "pages/wallet/card_list/card_list",
+    "pages/wallet/ticket_list/ticket_list",
+    "pages/wallet/qrcode/qrcode",
+    "pages/wallet/bind_card/bind_card",
+    "pages/wallet/multi_qrcode/multi_qrcode",
+    "pages/event/event",
+    "pages/coffee_machine/coffee_machine",
+    "pages/coffee_machine/coffee_holder/coffee_holder",
+    "pages/coffee_machine/coffee_order/coffee_order",
+    "pages/me/order/machine_order",
+    "pages/me/coffee_wallet/coffee_wallet",
+    "pages/me/coffee_wallet/expired_coupons/expired_coupons",
+    "pages/me/coffee_wallet/wallet_exchange/wallet_exchange",
+    "pages/cards/my_qrcode/my_qrcode",
+    "pages/points_mall/points_mall",
+    "pages/points_mall/exchange_record/exchange_record",
+    "pages/points_mall/exchange_record/record_tail/record_tail",
+    "pages/points_mall/points_rules/points_rules",
+    "pages/wallet/expired_cards/expired_cards",
+    "pages/wallet/expired_tickets/expired_tickets",
+    "pages/me/coffee_wallet/cmcc_exchange/cmcc_exchange",
+    "pages/me/user_infomation/user_infomation",
+    "pages/me/user_infomation/trade_selector/trade_selector",
+    "pages/me/pos_order/pos_order",
+    "pages/me/pos_order/pos_order_detail/pos_order_detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/cards/cards",
+        "iconPath": "/Resource/images/TabBar/card_rest.png",
+        "selectedIconPath": "/Resource/images/TabBar/card_select.png",
+        "text": "会员卡"
+      },
+      {
+        "pagePath": "pages/wallet/wallet",
+        "iconPath": "/Resource/images/TabBar/wallet_rest.png",
+        "selectedIconPath": "/Resource/images/TabBar/wallet_select.png",
+        "text": "卡包"
+      },
+      {
+        "pagePath": "pages/mall/mall",
+        "iconPath": "/Resource/images/TabBar/mall_rest.png",
+        "selectedIconPath": "/Resource/images/TabBar/mall_select.png",
+        "text": "商店"
+      },
+      {
+        "pagePath": "pages/me/me/me",
+        "iconPath": "/Resource/images/TabBar/me_rest.png",
+        "selectedIconPath": "/Resource/images/TabBar/me_select.png",
+        "text": "我"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  }
+}

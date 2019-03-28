@@ -1,0 +1,154 @@
+/* pages/me/pos_order/pos_order_detail/pos_order_detail.wxss */
+@import "../../../public/loading.wxss";
+
+page{
+  background-color: #F2F2F2;
+}
+
+.clearBox:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.view_background {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow:0 4px 8px RGBA(0, 0, 0, 0.05);
+}
+
+/* 门店信息 */
+.view_shop {
+  background-color: #f9f9f9;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.img_shop {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin-top: 4px;
+}
+
+.txt_shopname {
+  font-size: 32rpx;
+  color: #333333;
+  margin-left: 30px;
+}
+
+.view_time {
+  background-color: #f9f9f9;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+.txt_time {
+  font-size: 24rpx;
+  color: #666666;
+  margin-left: 30px;
+}
+
+/* 饮品列表 */
+.view_menu {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display:flex;
+  flex-direction:column;
+}
+
+.view_drink_info{
+  height: 25px;
+  padding: 0;
+}
+
+.view_drink_info text{
+  line-height: 25px;
+}
+
+.txt_name {
+  display: inline-block;
+  transform: translateY(-2px);
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.txt_count {
+  height: 25px;
+  font-size: 28rpx;
+  color: #333333;
+  float: right;
+  margin-right: 20px;
+}
+
+.txt_price {
+  height: 25px;
+  font-size: 28rpx;
+  color: #333333;
+  float: right;
+  width: 40px;
+  text-align: right;
+}
+
+.txt_spec {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 订单信息部分 */
+.view_order {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #f5f5f5;
+}
+
+.view_order_detail {
+  margin-top: 15px;
+  display: flex;
+}
+
+.txt_title {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.txt_space {
+  padding-left: 56rpx;
+}
+
+.txt_content {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.txt_content.red {
+  color: #ff5656;
+}
+
+/* 票券列表 */
+.view_tickets {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,155 @@
+/* pages/points_mall/exchange_record/exchange_record.wxss */
+@import "../../public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+
+page {
+  background-color: #f5f5f5;
+}
+
+/* loading */
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.list_container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_containerTop {
+  margin-top: 61px;
+}
+
+/* 空列表 */
+.view_list_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.view_list_empty .img_list_empty {
+  width: 260rpx;
+  height: 260rpx;
+}
+
+.view_list_empty .txt_list_empty {
+  font-size: 12px;
+  color: #999999;
+}
+
+/* 列表item */
+.view_good_item{
+  width: 690rpx;
+  margin-left: 30rpx;
+  background-color: #FFFFFF;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+
+/* 兑换的商品信息 */
+.view_goods {
+  padding: 10px 0;
+  display: flex;
+  width: 690rpx;
+  flex-direction: row;
+}
+
+/* 商品图片 */
+.view_goods .img_goods {
+  float: left;
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-left: 30rpx;
+  border-radius: 10px;
+  background-color: #F8F8F8;
+}
+
+/* 商品信息 */
+.view_goods .view_goods_info {
+  display: block;
+}
+
+/* 商品名 */
+.view_goods .view_goods_info .txt_title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 70rpx;
+  display: block;
+}
+
+/* 价格 */
+.view_goods .view_goods_info .txt_price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #dd4d4e;
+  margin-right: 40rpx;
+}
+
+/* 购买数量 */
+.view_goods .view_goods_info .txt_qty {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999999;
+}
+
+/* 订单信息 */
+.view_order_info {
+  display: block;
+  background-color: #ffffff;
+  margin: 0 30rpx;
+  padding-top: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* 分割线 */
+.separator {
+  height: 1px;
+  background-color: #ffffff;
+  padding-bottom: 10rpx;
+}
+
+.separator .line {
+  height: 1px;
+  background-color: #f5f5f5;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+/* 订单总价 */
+.view_order_info .txt_order_amount {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 订单状态 */
+.view_order_info .txt_order_status {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  float: right;
+  margin-top: 10rpx;
+}
+
+/* 订单日期 */
+.view_order_info .txt_order_date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+  display: block;
+}

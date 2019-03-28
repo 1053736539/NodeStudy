@@ -1,0 +1,5 @@
+<view class='container'>
+  <input class='ipt_card' placeholder='请输入兑换码' placeholder-class='placeholder' placeholder-style="font-size:16px;color:#999;" bindinput='finishInput'></input>
+  <button class="btn_bind" bindtap="tapExchange">立即兑换</button>
+  <text class='text_cmcc_coffee_wallet_exchange' bindtap='tapCMCC'>移动积分商城红包兑换 ></text>
+</view>

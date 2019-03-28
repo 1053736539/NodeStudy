@@ -1,0 +1,82 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx96743e94dddfa029",
+	"projectname": "Mellower_wxapp",
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": 0,
+					"name": "StarWithEventPage",
+					"pathName": "pages/event/event",
+					"query": "activityId=2",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "StarWithCardPage",
+					"pathName": "pages/cards/cards",
+					"query": "dataString={\"shareType\":\"event\",\"targetURL\":\"/pages/event/event\",\"dataDic\":{\"event\":{\"activityId\":\"27\",\"type\":\"002\"}}}",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "StarWithSurvey",
+					"pathName": "pages/event/survey/survey",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 3,
+					"name": "CoffeeMachine",
+					"pathName": "pages/cards/cards",
+					"query": "dataString={\"shareType\":\"coffee\",\"dataDic\":{\"machineID\":\"867732036604874\"}}",
+					"scene": "1011"
+				},
+				{
+					"id": 4,
+					"name": "giftCards",
+					"pathName": "pages/cards/cards",
+					"query": "dataString={\"shareType\":\"card_gift\",\"targetURL\":\"/pages/cards/receive/receive\",\"dataDic\":{\"cardInfo\":{\"name\":\"早安卡\",\"cardId\":5970,\"detail\":\"12:00前，25元可兑换任意咖啡\",\"imgUrl\":\"/Mellower/userfiles/images/%E6%97%A9%E5%AE%89%E5%8D%A1%EF%BC%88%E5%A4%A7%EF%BC%89.jpg\",\"cardtype\":{\"number\":\"006\",\"name\":\"早安卡类型\",\"id\":10},\"saleamount\":0.01,\"receiveCode\":\"1532504139\",\"count\":\"1\"},\"senderInfo\":{\"userId\":6673,\"nickname\":\"\",\"tel\":\"18108703792\",\"leaveMsg\":\"送你的心意全在这张卡里\",\"staff_identity\":\"0\"}}}",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/wallet/use_appointment_form/use_appointment_form",
+					"scene": null
+				}
+			]
+		}
+	}
+}

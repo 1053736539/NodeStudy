@@ -1,0 +1,48 @@
+<!--pages/me/logistics/logistics.wxml-->
+<view class="list_container">
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading" wx:if="{{!loadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{loadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{loadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReload" wx:if="{{loadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+
+  <block wx:else>
+    <view class="logisticsBox">
+      <!-- 物流信息头部 -->
+      <view class="header">
+        <view class="img">
+          <image src="{{domain}}{{orderItem.goodsentryList[0].goodsInfo.imgurl1}}"></image>
+          <view class="amount">{{orderItem.goodsentryList.length}}件商品</view>
+        </view>
+        <view class="logisti">
+          <text class="status" wx:if="{{expressInfo.result.deliverystatus == 1}}">物流状态：<text class="red">运输中</text></text>
+          <text class="status" wx:if="{{expressInfo.result.deliverystatus == 2}}">物流状态：<text class="red">派件中</text></text>
+          <text class="status" wx:if="{{expressInfo.result.deliverystatus == 3}}">物流状态：<text class="red">已签收</text></text>
+          <text class="status" wx:if="{{expressInfo.result.deliverystatus == 4}}">物流状态：<text class="red">派送失败</text></text>
+          <text class="gray distance">承运来源：{{companyInfo.name}}</text>
+          <text class="gray">运单单号：{{expressInfo.result.number}}</text>
+          <view style="clear:both"></view>
+        </view>
+      </view>
+      <!-- 物流信息详情 -->
+      <view class="detailBox">
+        <block wx:for="{{expressInfo.result.list}}">
+          <template is="logisticsDetail" data="{{item, index}}"></template>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 模板 -->
+<template name="logisticsDetail">
+  <view class="detail {{index ==0 ? 'newest': 'past'}}">
+    <view class="record">
+      <text>{{item.status}}</text>
+      <text>{{item.time}}</text>
+    </view>
+  </view>
+</template>

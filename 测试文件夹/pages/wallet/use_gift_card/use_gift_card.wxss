@@ -1,0 +1,285 @@
+/* use_gift_card.wxss */
+@import "../../public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+
+/* 加载 */
+
+.list_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.img_mellower{
+  margin-top: 161px;
+}
+
+.view_loading{
+  align-self: center;
+  margin-top: 161px;
+}
+
+
+.view_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.view_img_container {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.scan {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.scan text {
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.scan image {
+  margin-top: -2px;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.butto {
+  display: none;
+}
+
+.butto .view_gift {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+
+.view_gift_tip {
+  font-weight: 400;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+
+.butto.on {
+  display: block;
+}
+
+.img_card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius:10px;
+}
+
+.txt_card_title {
+  margin-top: 15px;
+}
+
+.txt_card_status {
+  margin-top: 30px;
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+  display: block;
+}
+
+.btn_use {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 30px;
+  width: 260px;
+  height: 44px;
+  background-color: #444444;
+  border-radius: 22px;
+}
+
+.btn_give {
+  font-size: 16px;
+  color: #444444;
+  margin-top: 20px;
+  width: 260px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #444444;
+  border-radius: 22px;
+}
+
+.view_product {
+  display: flex;
+  flex-direction: column;
+}
+
+.view_product .txt_product_name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
+  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 8px;
+  padding-top: 30px;
+}
+
+.view_product .txt_product_info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.view_product .time {
+  font-size: 14px;
+  color: #999999;
+  line-height: 20px;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.view_product .txt_instruction {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/*弹窗 */
+
+.drawer_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 1%;
+  left: 0;
+  z-index: 2000;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box;
+}
+
+.drawer_attr_box .clickReceive {
+  position: relative;
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.drawer_attr_box .clickReceive .scanCode {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #61616a;
+}
+
+.close {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  border-radius: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 8%;
+  left: 50%;
+  margin-left: -17px !important;
+  background-color: rgb(130, 130, 130);
+  z-index: 9999;
+}
+
+.close image {
+  width: 34px;
+  height: 34px;
+}
+
+.right_top_item {
+  display: block;
+}
+
+/* 条码 */
+
+.view_barCode {
+  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.barnum {
+  width: 335px;
+  height: 40px;
+  line-height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 8px;
+  white-space: nowrap;
+}
+
+.view_barCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_barCode > canvas {
+  width: 640rpx;
+  height: 200rpx;
+}
+
+.view_qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_qrcode > canvas {
+  width: 440rpx;
+  height: 440rpx;
+}
+
+/*蒙层*/
+
+.view_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}

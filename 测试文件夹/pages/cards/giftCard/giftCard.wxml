@@ -1,0 +1,38 @@
+<!--pages/cards/giftCard/giftCard.wxml-->
+<view class="container">
+  <image class='img_header' src='/Resource/images/Card/gift_header.png'></image>
+
+  <view class="giftCard">
+
+    <!-- 这里会员券是不会出现,但还是作出判断 '000' -->
+    <block wx:if="{{card.carddefine.cardtype.number == '008'||card.carddefine.cardtype.number == '000'||card.carddefine.cardtype.number == '012'}}">
+      <!-- 所有券 -->
+      <view class='view_ticket'>
+        <image class="img_ticket" src='{{domain}}{{card.cardStockInfo.imgurl1}}'></image>
+      </view>
+    </block>
+    <block wx:else>
+
+      <!-- 其他(卡片) -->
+      <view class='giftCardHeader'>
+        <image src="{{domain}}{{card.cardStockInfo.imgurl1}}" mode="widthFix"></image>
+      </view>
+    </block>
+
+    <view class="gift_name {{(card.carddefine.cardtype.number != '008' && card.carddefine.cardtype.number != '012')?'':'ticket'}}">{{card.name}}</view>
+    <view class="gift_detail" wx:if="{{card.carddefine.cardtype.number != '008'&&card.carddefine.cardtype.number != '012'}}">
+      <text class='txt_price'>{{card.cardStockInfo.saleamount}}元</text>
+      <text class='txt_count'> x1</text>
+    </view>
+    <view class="giftCardText">
+      <textarea value="送你的心意全在这张卡里" placeholder-class="giftPlace" bindinput="finishInputMsg" type="number" maxlength="100" />
+    </view>
+    <block wx:if="{{hasGift}}">
+      <button bindtap='tapGift'>返回</button>
+    </block>
+    <block wx:else>
+      <button open-type='share'>赠送礼物</button>
+    </block>
+  </view>
+  <view class='gift_tip'>赠送的卡片若24小时后还未被朋友领取，会退回你的卡包</view>
+</view>

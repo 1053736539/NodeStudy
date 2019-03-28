@@ -1,0 +1,42 @@
+<!--pages/wallet/use_appointment_card/use_appointment_card.wxml-->
+<scroll-view scroll-y>
+<block wx:if="{{isCardLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!cardLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{cardLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{cardLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{cardLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <view class='pad_b40' wx:else>
+    <view class='flex_c_c pad_t60'>
+      <view class='w_670 h_425  radius_10 overflow'>
+        <image class='w_670 h_425 block overflow radius_10' src="{{domain}}{{card.cardStockInfo.imgurl1}}" />
+      </view>
+    </view>
+    <view class='flex_c_c font_40 color_3  pad_t30'>（{{card.statusValue}}）</view>
+
+    <view  class='flex_c_c pad_t60'> 
+      <navigator
+        url='/pages/wallet/use_appointment_form/use_appointment_form'
+        class='bg_44 white font_32 w_520 flex_c_c pad_t25 pad_b25 radius_50'>现在预约</navigator>
+   </view>
+
+    <view class='flex_c_c pad_t40'>
+      <view class='whitebg color_4 bo font_32 w_520 flex_c_c pad_t25 pad_b25 radius_50' bindtap='didTapGive'>赠送朋友</view>
+    </view>
+
+    <!--/////////////////////////////////////////////////// 文案部分 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+    <view class='pad_l40'>
+      <view class='color_3 font_36 bold  top_80'>月饼礼卡</view>
+      <view class='color_9 font_24 top_20'>使用有效期：{{card.createtime}}至{{card.expirationdate}}</view>
+    </view>
+    <view class='pad_l40 pad_r40'>
+      <view class='color_3 font_36 bold  top_80'>兑换须知</view>
+      <view class='color_9 font_24 top_20 justify'>{{card.cardStockInfo.instructions}}</view>
+    </view>
+
+
+  </view>
+
+</scroll-view>

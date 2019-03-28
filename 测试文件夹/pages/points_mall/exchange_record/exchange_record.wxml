@@ -1,0 +1,79 @@
+<!--pages/points_mall/exchange_record/exchange_record.wxml-->
+
+<view class="list_container">
+  <block wx:if="{{isListLoading}}">
+    <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReload" wx:if="{{listLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <block wx:if="{{isListEmpty}}">
+      <view class='view_list_empty'>
+        <image class='img_list_empty' src='/Resource/images/empty.png'></image>
+        <text class='txt_list_empty'>这里是空的</text>
+      </view>
+    </block>
+    <view class='view_good_item' wx:for="{{recordList}}" bindtap='tapToOrderTail' data-id="{{item.id}}">
+      <block wx:if="{{item.type == 6}}">
+        <!-- 优惠券 -->
+        <block wx:for="{{item.couponentryList}}">
+          <template is="temp_exchange_record_coupon" data="{{item, index, domain}}"></template>
+        </block>
+        <template is="temp_order_info" data="{{item}}"></template>
+      </block>
+      <block wx:elif="{{item.type == 5}}">
+        <!-- 卡券 -->
+        <block wx:for="{{item.cardentryList}}">
+          <template is="temp_exchange_record_card" data="{{item, index, domain}}"></template>
+        </block>
+        <template is="temp_order_info" data="{{item}}"></template>
+      </block>
+    </view>
+
+    <view class="loading" hidden="{{!listWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!listWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view>
+  </block>
+</view>
+
+<!-- 优惠券兑换记录模板 -->
+<template name="temp_exchange_record_coupon">
+  <view class='view_goods'>
+    <image class='img_goods' src='{{domain+item.couponDefineInfo.imgurl3}}'></image>
+    <view class='view_goods_info'>
+      <text class='txt_title'>{{item.displayName}}</text>
+      <text class='txt_price'>{{item.couponDefineInfo.saleintegral}}积分</text>
+      <text class='txt_qty'>x{{item.qty}}</text>
+    </view>
+  </view>
+</template>
+
+<!-- 卡券券兑换记录模板 -->
+<template name="temp_exchange_record_card">
+  <view class='view_goods'>
+    <image class='img_goods' src='{{domain+item.cardInfo.imgUrl3}}'></image>
+    <view class='view_goods_info'>
+      <text class='txt_title'>{{item.displayName}}</text>
+      <text class='txt_price'>{{item.cardStockInfo.saleintegral}}积分</text>
+      <text class='txt_qty'>x{{item.qty}}</text>
+    </view>
+  </view>
+</template>
+
+<!-- 订单信息模板 -->
+<template name="temp_order_info">
+  <!-- <view class='separator'>
+    分割线比View窄，这里懒得去布局很复杂的UI了，猥琐办法解决一下
+    <view class='line'></view>
+  </view> -->
+  <view class='view_order_info'>
+    <text class='txt_order_amount'>合计：{{item.actintegral}}积分</text>
+    <text class='txt_order_status' wx:if="{{item.signal == 5}}">已退款</text>
+    <text class='txt_order_status' wx:else>已兑换</text>
+    
+    <text class='txt_order_date'>{{item.createtime}}</text>
+  </view>
+</template>

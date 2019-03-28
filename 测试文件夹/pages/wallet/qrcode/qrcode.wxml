@@ -1,0 +1,13 @@
+<!--pages/wallet/qrcode/qrcode.wxml-->
+<view class='container'>
+  <view class='view_bg'>
+    <view class='view_title'>{{cardInfo.name}}</view>
+    <view class="view_date">使用有效期：{{cardInfo.createtime}}至{{cardInfo.expirationdate}}</view>
+    <!--二维码-->
+    <view class="view_qrcode">
+      <view class="barnum">{{cardInfo.number}}</view>
+      <canvas canvas-id="qrcode" />
+    </view>
+    <view class='view_tips'>扫一扫 即可兑换</view>
+  </view>
+</view>

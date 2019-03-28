@@ -1,0 +1,61 @@
+<!--buy_card.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!isLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{isLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <!-- 加载完成 -->
+  <block wx:else>
+    <view class="buy_card_header">
+      <text class="buy_card_text">{{cardGroupInfo.name}}</text>
+      <text class='txt_card_desc'>{{cardGroupInfo.description}}</text>
+    </view>
+    <view class="buy_drink_card">
+      <block wx:for="{{cardGroupList}}">
+        <template is="temp_drink_card" data="{{item, index, selectedIndex, domain}}"></template>
+      </block>
+    </view>
+    <view class="view_instruction">
+      <text class="txt_instruction">购买说明</text>
+      <text class="txt_instruction_info">{{cardGroupInfo.instructions}}</text>
+    </view>
+  </block>
+</view>
+
+<!--蒙层-->
+<view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+</view>
+<!--弹窗内容-->
+<view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+  <view class="view_item">
+    <text class="txt_prefix">+86</text>
+    <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+  </view>
+
+  <view class="view_item">
+    <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+    <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+  </view>
+  <button class="btn_verify" bindtap="didTapValidate">验证</button>
+</view>
+
+
+<!--饮品模板-->
+<template name="temp_drink_card">
+  <view class="drink_card" data-index="{{index}}" bindtap="tapCard">
+    <view class="drink_card_img">
+      <image class="img_card" src="{{domain}}{{item.imgUrl1}}"></image>
+    </view>
+    <text class="drink_name">{{item.name}}</text>
+    <text class="drink_detail">{{item.cardintroduce}}</text>
+    <view class='view_price'>
+      <text class="drink_price">{{item.showPrice}}元起</text>
+      <text class='drink_unit'>/份</text>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,10 @@
+<!--rechargeSucc.wxml-->
+<view class="content">
+  <view class="img">
+    <image src="../../../../Resource/images/cashier/success.png"></image>
+    <text>{{mainTitle}}</text>
+  </view>
+  <text class="fon">{{subTitle}}</text>
+  <button bindtap="tapComplete">完成</button>
+</view>
+

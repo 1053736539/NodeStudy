@@ -1,0 +1,17 @@
+<!--pages/me/coffee_wallet/cmcc_exchange/cmcc_exchange.wxml-->
+<view class='container'>
+  <view class='view_input_bg'>
+    <input class='ipt_phone' placeholder='请输入手机号码' placeholder-class='placeholder' bindinput="finishInputPhone" type="number" maxlength="20"></input>
+  </view>
+  <view class='view_input_bg'>
+    <input class='ipt_code' placeholder='请输入验证码' placeholder-class='placeholder' bindinput="finishInputCode" focus='{{focusInputValidCode}}'></input>
+    <text class="text_get_verify {{isCounting? 'disable' : ''}}" bindtap="didTapGetVerify">{{second}}</text>
+  </view>
+  <button class="btn_exchange" bindtap="didTapExchange" wx:if="{{!isLogin}}">立即兑换</button>
+  <view class="view_header">
+    <text class="txt_name">兑换说明</text>
+    <text class="txt_detail">1、您可以在中国移动积分商城购买麦隆的咖啡红包，然后在此处兑换。兑换成功后，红包会发放到您的账户内；
+    
+    2、兑换前，请确认您在中国移动积分商城有可兑换的订单。</text>
+  </view>
+</view>

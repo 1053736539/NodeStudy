@@ -1,0 +1,122 @@
+/* use_balance_card.wxss */
+@import "../../public/loading.wxss";
+
+.list_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.view_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.view_img_container {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+}
+
+.img_card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.txt_card_title {
+  margin-top: 15px;
+}
+
+.txt_card_status {
+  font-weight: 500;
+  margin-top: 30px;
+  display: block;
+  font-size: 20px;
+  color: #333;
+}
+
+.btn_use {
+  font-size: 16px;
+  line-height: 44px;
+  color: #fff;
+  margin-top: 30px;
+  width: 260px;
+  height: 44px;
+  background-color: #444444;
+  border-radius: 22px;
+}
+
+.btn_give {
+  font-size: 16px;
+  line-height: 44px;
+  color: #444444;
+  margin-top: 20px;
+  width: 260px;
+  height: 44px;
+  background-color: #fff;
+  border:1px solid #444444;
+  border-radius: 22px;
+}
+
+.view_gift {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+
+.view_gift_tip {
+  font-weight: 400;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  line-height: 12px;
+  margin-top: 10px;
+}
+
+.view_product {
+  display: flex;
+  flex-direction: column;
+}
+
+.view_product .txt_product_name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
+  margin: 20px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  padding-top: 30px;
+}
+
+.view_product .txt_product_info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.view_product .txt_instruction {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.right_top_item {
+  display: block;
+}

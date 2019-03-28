@@ -1,0 +1,50 @@
+<!--pages/coffee_machine/coffee_machine.wxml-->
+<view class="container">
+  <!--蒙层-->
+  <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+  </view>
+  <!--弹窗内容-->
+  <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+    <view class="view_item">
+      <text class="txt_prefix">+86</text>
+      <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+    </view>
+    <view class="view_item">
+      <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+      <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+    </view>
+    <button class="btn_verify" bindtap="didTapValidate">验证</button>
+  </view>
+
+  <block wx:if="{{!isLogin}}">
+    <!-- 未登录提示 -->
+    <image class='img_not_login' src='/Resource/images/not_login.png'></image>
+    <text class="txt_not_login">{{tipMsg}}</text>
+    <!-- 登录按钮 -->
+    <view class="view_login">
+      <button class="btn_login" bindtap="showAlert">登录 / 注册</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <block wx:if="{{isLoading}}">
+      <image class='img_loading' wx:if="{{!isLoadingFail}}" src='/Resource/images/order_loading.png' />
+      <text class='txt_loading' wx:if="{{!isLoadingFail}}">{{tipMsg}}</text>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+      <text class='txt_loading_fail' wx:if="{{isLoadingFail}}">{{tipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{isLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+
+    <!-- 跳转到收银台 -->
+    <block wx:else>
+
+    </block>
+
+  </block>
+
+
+
+
+</view>

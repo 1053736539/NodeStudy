@@ -1,0 +1,22 @@
+<!--pages/wallet/bind_card/bind_card.wxml-->
+<view class='container'>
+  <input class='ipt_card' placeholder='请输入卡片兑换码' placeholder-class='placeholder' bindinput='finishInput'></input>
+  
+  <view class='color_6 font_28 flex_c_c bottom_30'># 可兑换卡券和月饼礼券 #</view>
+
+
+  <button class="btn_bind" bindtap="tapBindCard" wx:if="{{!isLogin}}">立即兑换</button>
+
+  <!-- <view class="view_product">
+    <text class="txt_instruction">绑定说明</text>
+    <block wx:if="{{isLoading}}">
+      <text class="txt_product_info" wx:if="{{isLoadingFail}}">失败说明失败说明失败说明失败说明失败说明说明说明</text>
+      <view class="loading_container">
+        <view class="view_loading" wx:if="{{!isLoadingFail}}"></view>
+      </view>
+    </block>
+    <block wx:else>
+      <text class="txt_product_info">{{bindingExplain}}</text>
+    </block>
+  </view> -->
+</view>

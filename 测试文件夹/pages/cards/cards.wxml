@@ -1,0 +1,108 @@
+<!--cards.wxml-->
+<view class="container">
+  <!--蒙层-->
+  <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+  </view>
+  <!--弹窗内容-->
+  <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+    <view class="view_item">
+      <text class="txt_prefix">+86</text>
+      <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+    </view>
+    <view class="view_item">
+      <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+      <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+    </view>
+    <button class="btn_verify" bindtap="didTapValidate">验证</button>
+  </view>
+
+  <!--banner位-->
+  <view class='view_level_container'>
+    <swiper wx:if="{{bannerItems.length != 0}}" class='main_swiper' circular='{{true}}' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,1)">
+      <block wx:for="{{bannerItems}}">
+        <swiper-item>
+          <image src="{{domain+item.imgurl}}" data-item="{{item}}" bindtap="didTapBanner" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <image class="img_not_loading_banner" wx:if="{{bannerItems.length == 0}}" src="/Resource/images/not_loading.png" />
+  </view>
+
+  <!-- 未登录提示 -->
+  <image class='img_not_login' src='/Resource/images/not_login.png' wx:if="{{!isLogin}}"></image>
+  <text class="txt_not_login" wx:if="{{!isLogin}}">欢迎使用  麦隆咖啡  小程序</text>
+
+  <!-- 登录按钮 -->
+  <view class="view_login">
+    <button class="btn_login" bindtap="showAlert" wx:if="{{!isLogin}}">登录 / 注册</button>
+  </view>
+
+  <block wx:if="{{isLogin}}">
+    <!-- 会员卡信息 普通手机-->
+    <view class="view_card_info" wx:if="{{!isIPhoneX}}">
+      <template is="temp_card_info" data="{{imgLevelSrc,userInfo,isIPhoneX}}"></template>
+    </view>
+    <!-- 会员卡信息 iPhoneX-->
+    <view class="view_card_info view_card_info_iPhoneX" wx:if="{{isIPhoneX}}">
+      <template is="temp_card_info" data="{{imgLevelSrc,userInfo,isIPhoneX}}"></template>
+    </view>
+    
+    <view class="view_qrcode" >
+      <!-- 我的会员码按钮 普通手机-->
+      <button class="btn_qrcode" bindtap="tapBindMyQrcode" wx:if="{{!isIPhoneX}}">
+        <template is="temp_qrcode"></template>
+      </button>
+      <!-- 我的会员码按钮 iPhoneX-->
+      <button class="btn_qrcode btn_qrcode_iPhoneX" bindtap="tapBindMyQrcode" wx:if="{{isIPhoneX}}">
+        <template is="temp_qrcode"></template>
+      </button>
+    </view>
+  </block>
+</view>
+
+
+<!-- 会员信息模板 -->
+<template name="temp_card_info">
+  <view class='view_member_tail' bindtap='didTapRules'>
+
+    <view class="view_member" wx:if="{{!isIPhoneX}}">
+      <image class='img_member' src="{{imgLevelSrc}}"></image>
+      <text class="txt_member">{{userInfo.glory.name}}</text>
+    </view>
+    <view class="view_member_iPhoneX" wx:if="{{isIPhoneX}}">
+      <image class='img_member' src="{{imgLevelSrc}}"></image>
+      <text class="txt_member">{{userInfo.glory.name}}</text>
+    </view>
+
+    <view class="view_gold_dis" wx:if="{{userInfo.alive.vit}}">
+      <text class="txt_gold_dis" wx:if="{{userInfo.glory.level == 5}}">你已累积{{userInfo.alive.vit}}活力值，更多会员特权敬请期待</text>
+      <text class="txt_gold_dis" wx:if="{{userInfo.glory.level < 5}}">距离{{userInfo.alive.next_glory.name}}还差{{userInfo.alive.next_to_upgrade}}活力值</text>
+      <image class='img_gold_dis' src='/Resource/images/Card/question.png'></image>
+    </view>
+  </view>
+
+  <view class="view_account">
+    <view class="view_alive account_item">
+      <image class='img_account_item_logo' src='/Resource/images/Card/my_alive.png'></image>
+      <text class="txt_account_item_data">{{userInfo.alive.vit}}</text>
+      <text class="txt_account_item_sort">活力值</text>
+    </view>
+
+    <view class="view_integral account_item">
+      <image class='img_account_item_logo' src='/Resource/images/Card/my_integral.png'></image>
+      <text class="txt_account_item_data">{{userInfo.pointAccount.balance}}</text>
+      <text class="txt_account_item_sort">积分</text>
+    </view>
+    <view class="view_balance account_item">
+      <image class='img_account_item_logo' src='/Resource/images/Card/my_balance.png'></image>
+      <text class="txt_account_item_data">{{userInfo.electronicAccount.balance}}元</text>
+      <text class="txt_account_item_sort">余额</text>
+    </view>
+  </view>
+</template>
+
+<!-- 我的会员码 -->
+<template name="temp_qrcode">
+    <image class='img_my_qrcode' src='/Resource/images/Card/qrcode.png'></image>
+    <text class="txt_my_qrcode">我的会员码</text>
+</template>

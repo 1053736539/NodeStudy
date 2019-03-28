@@ -1,0 +1,6 @@
+<!--pages/me/user_infomation/trade_selector/trade_selector.wxml-->
+<view class='container'>
+  <view class='view_list_item' wx:for="{{trades}}" data-item='{{item}}' bindtap='tapTradeItem'>
+    <text class='txt_title'>{{item}}</text>
+  </view>
+</view>

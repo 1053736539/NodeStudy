@@ -1,0 +1,129 @@
+/* voucher.wxss */
+@import "../../public/loading.wxss";
+
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+/* 页面 */
+
+.voucher {
+  margin: 0 20px;
+  height: auto;
+}
+
+.voucherTop {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.voucherTop image {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.voucherTop .txt_succ {
+  font-size: 18px;
+  color: #333;
+  font-weight: 900;
+}
+
+.voucherTop .txt_tip {
+  font-size: 14px;
+  color: #333;
+}
+
+/* 按钮区域 */
+.view_buttons {
+  display: flex;
+  z-index: 999;
+}
+
+.view_buttons .btn_double {
+  width: 40%;
+  height: 40px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 20px;
+}
+
+.view_buttons .btn_double_black {
+  width: 40%;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #444;
+  border-radius: 20px;
+}
+
+.view_buttons .btn_single {
+  width: 240px;
+  height: 40px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 20px;
+}
+
+.complete {
+  margin-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.voucher_bg {
+  box-shadow: 0px 0px 10px #D9D9D9;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
+
+.voucherBottom {
+  padding-bottom: 10px;
+}
+
+.voucherBottom text:first-child{
+  display: block;
+  font-size: 18px;
+  color: #333;
+  font-weight: 900;
+  padding-bottom: 5px;
+}
+
+.voucherBottom text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 100;
+}
+
+.receivePoints {
+  font-size: 12px;
+  color: #333;
+  display: flex;
+}
+
+.txt_bean {
+  font-size: 16px;
+  color: #333;
+}
+
+.img_bean {
+  height: 16px;
+  width: 16px;
+  padding-left: 5px;
+  align-self: center;
+}

@@ -1,0 +1,2 @@
+<!--pages/points_mall/points_rules/points_rules.wxml-->
+<image class='img_rules' src='/Resource/images/Me/points_rules.png' mode="widthFix"></image>

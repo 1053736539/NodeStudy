@@ -1,0 +1,457 @@
+/* cashier_desk.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8;
+}
+
+.cashierBack {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: #444444;
+  font-size: 12px;
+  line-height: 30px;
+ 
+}
+
+.cashierDetails {
+  margin: 0 30rpx;
+  margin-bottom: 15px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow:0 4px 8px RGBA(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.view_paymentDetails{
+  margin-bottom: 100px;
+}
+
+.cashierDetaFont {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  width: 630rpx;
+  height: 50px;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  line-height: 50px;
+
+}
+
+/* 商品列表 */
+
+.view_goods {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.view_goodsDetails {
+  width: 630rpx;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.view_name{
+  display: inline-block;
+  color: #333;
+  font-size: 14px;
+  width: 75%;
+}
+
+.view_qty{
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+.view_introduce{
+  display: inline-block;
+  width: 15%;
+  color: #333;
+  font-size: 14px;
+  text-align: right;
+}
+
+
+.goodsIns {
+  width: 630rpx;
+  margin-top: 5px;
+  margin-left: 30rpx;
+  text-overflow: ellipsis;
+  color: #999;
+  font-size: 12px;
+}
+
+
+/* 优惠券选择 */
+.view_coupon_choose{
+  height: 55px;
+}
+
+.view_coupon_choose {
+  width: 630rpx;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.txt_left_item{
+  display: inline-block;
+  color: #333;
+  font-size: 14px;
+  width: 65%;
+  line-height: 55px;
+  
+}
+
+.txt_center_item{
+  display: inline-block;
+  width: 25%;
+  text-align: right;
+  color: #999;
+  font-size: 14px;
+  line-height: 55px;
+  margin-right: 10rpx;
+}
+
+.txt_center_item_discount{
+  color: #DD4D4E;
+}
+
+.view_right_item{
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  margin-top: 12.5px;
+}
+
+.view_right_item image{
+  line-height: 40px;
+  height: 30px;
+  width: 30px;
+}
+
+.view_spacing{
+  height: 1px;
+  display: flex;
+  flex-direction: row;
+}
+
+.view_left_circle{
+  height: 20px;
+  width: 10px;
+  border-radius:0 10px 10px 0;
+  background-color: #f2f2f2;
+}
+
+.ciew_center_line{
+  border: 1rpx dashed #E6E6E6;
+  width: 626rpx;       
+  height: 0;
+  /* border-style: dashed; */
+  margin: 0 auto;
+  align-self: center;
+}
+
+.view_right_circle{
+  height: 20px;
+  width: 10px;
+  border-radius:10px 0 0 10px;
+  background-color: #f2f2f2;
+}
+
+/* 价格总计 */
+.view_allamount{ 
+  height: 50px;
+}
+
+.view_text{
+  float: right;
+  margin-right: 30rpx;
+}
+
+.txt_allamount{
+  line-height: 50px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.txt_unit{
+  line-height: 50px;
+  color: #DD4D4E;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 支付方式 */
+
+.paymentChance {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  height: 50px;
+  margin-left: 30rpx;
+  width: 630rpx;
+  line-height: 50px;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.paymentMode {
+  height: 120rpx;
+  position: relative;
+  margin-left: 30rpx;
+  width: 630rpx;
+}
+
+.paymentModeDetails {
+  position: relative;
+}
+
+.circular {
+  position: absolute;
+  top: 28rpx;
+  left: 0px;
+  width: 64rpx;
+  height: 64rpx;
+  overflow: hidden;
+}
+
+.circular image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.font {
+  position: absolute;
+  font-size: 16px;
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+  top: 40rpx;
+  left: 80rpx;
+}
+
+.chance {
+  position: absolute;
+  font-size: 16px;
+  color: #333;
+  top: 40rpx;
+  line-height: 40rpx;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.paymentMode .chance image {
+  height: 20px;
+  width: 20px;
+}
+
+/* 空白区 */
+
+.spaceBack {
+  height: 10px;
+  width: 100%;
+  background-color: rgb(242, 242, 242);
+}
+
+/* 底部 */
+
+.view_purchase {
+  z-index: 999;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+}
+
+.view_purchase .view_amount {
+  width: 70%;
+  align-self: center;
+}
+
+.view_purchase .view_amount .txt_amount_tip {
+  font-size: 16px;
+  color: #333;
+  margin-left: 15px;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+.view_purchase .view_amount .txt_amount {
+  font-size: 16px;
+  color: #dd4d4e;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.view_purchase .btn_purchase {
+  width: 160px;
+  height: 40px;
+  background-color: #444444;
+  border-radius: 20px;
+  text-align: center;
+  align-self: center;
+  margin-right: 15px;
+}
+
+.view_purchase .btn_purchase .txt_purchase {
+  color: #fff;
+  font-size: 16px;
+  line-height: 40px;
+  
+}
+
+.pay_item_view {
+  height: 50px;
+  width: 630rpx;
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.pay_item_view.spe {
+  border-bottom: 0px solid #f5f5f5;
+}
+
+.need_pay {
+  line-height: 50px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.need_pay.need_pay_amount {
+  color: #DD4D4E;
+  font-size: 18px;
+}
+
+/* 规格选择弹窗 */
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.drawer_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  height: 428px;
+}
+
+.drawer_pay_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #F8F8F8;
+  border-radius: 10px  10px  0  0; 
+}
+
+.drawer_attr_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.view_pay_item{
+  width: 690rpx;
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  align-self: center;
+  background-color: #FFFFFF;
+}
+
+.view_windows_line{
+  border-bottom: 1rpx solid #F5F5F5;
+  margin: 0 auto;
+  width: 630rpx;       
+  height: 0;
+  align-self: center;
+}
+
+.paymoney {
+  bottom: 0px;
+  padding: 0;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.paymoney button {
+  width: 750rpx;
+  height: 50px;
+  background-color: #444;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 50px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.pay_head {
+  width: 750rpx;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #EDEDED;
+  margin-bottom: 15px;
+}
+
+.pay_head_text {
+  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  color: #333;
+}
+
+.pay_drawer_close {
+  position: absolute;
+  top: 16px;
+  right: 30rpx;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  padding-left: 0px;
+}
+

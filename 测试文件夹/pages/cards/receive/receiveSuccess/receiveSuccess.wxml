@@ -1,0 +1,59 @@
+<!--pages/cards/receive/receiveSuccess/receiveSuccess.wxml-->
+<view class="container">
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading">
+    </view>
+  </block>
+  <block wx:else>
+    <image class='img_header' src='/Resource/images/Card/gift_header.png'></image>
+
+    <view class="view_top">
+      <block wx:if="{{cardInfo.cardtype.number=='008' || cardInfo.cardtype.number=='012' }}">
+        <!-- 员工券,体验券 -->
+        <view class='view_ticket'>
+          <image class="img_ticket" src='{{domain}}{{cardInfo.imgUrl}}'></image>
+        </view>
+      </block>
+      <block wx:else>
+        <!-- 其它 -->
+        <view class="img_container">
+          <image class="img_card" src="{{domain}}{{cardInfo.imgUrl}}"></image>
+        </view>
+      </block>
+    </view>
+
+    <view class="view_bottom">
+      <block wx:if="{{isSucc}}">
+        <view class='view_receive_success view_receive'>
+          <view class='view_success_description'>
+            <text class='txt_success_description'>{{receiveStatus}}</text>
+          </view>
+          <text class='txt_card_name'>{{cardInfo.name}}</text>
+          <block wx:if="{{cardInfo.cardtype.number=='008' || cardInfo.cardtype.number=='012' }}">
+          </block>
+          <block wx:else>
+            <text class='txt_card_price' wx:if="{{cardInfo.saleamount}}">{{cardInfo.saleamount}}元</text>
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='view_receive_fail view_receive'>
+          <text class='txt_fail_head'>领取失败</text>
+          <text class='txt_fail_description'>{{receiveStatus}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="view_buttons">
+      <!-- 领取成功 -->
+      <block wx:if="{{isSucc}}">
+        <button class="btn_back" bindtap="tapMall">我也要送</button>
+        <button class="btn_check" bindtap="tapCheck">查看卡包</button>
+      </block>
+      <!-- 领取失败 -->
+      <block wx:else>
+        <button class="btn_back" bindtap="tapMall">我也要送</button>
+        <button class="btn_check" bindtap="tapCard">返回首页</button>
+      </block>
+    </view>
+  </block>
+</view>

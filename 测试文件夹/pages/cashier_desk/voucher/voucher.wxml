@@ -1,0 +1,46 @@
+<!--voucher.wxml-->
+<view class="container">
+  <view class="voucher">
+    <view class="voucherTop">
+      <view class="success">
+        <image src="../../../Resource/images/cashier/success.png"></image>
+        <text class='txt_succ'>购买成功！</text>
+      </view>
+      <text wx:if="{{paymentInfo.type=='1'||paymentInfo.type=='3'}}" class='txt_tip'>{{tipContent}}</text>
+      <view class="complete">
+        <view class='view_buttons'>
+          <block wx:if="{{hasDoubleBtns}}">
+            <!-- 两个操作按钮 -->
+            <button class='btn_double' bindtap="tapComplete">返回商店</button>
+            <!-- 面额卡 -->
+            <button class='btn_double_black' wx:if="{{btnTitle == '充值进余额'}}" bindtap="tapUseBalanceCard">{{btnTitle}}</button>
+            <!-- 其他卡 -->
+            <button class='btn_double_black' wx:if="{{btnTitle == '立即使用'}}" bindtap="tapUseCard">{{btnTitle}}</button>
+          </block>
+          <block wx:else>
+            <!-- 单个按钮 -->
+            <button class='btn_single' bindtap="tapComplete">完成</button>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='voucher_bg' wx:if="{{!freeFlag}}">
+      <view class="voucherBottom">
+        <text>支付金额：{{totalDiscountPrice}}元</text>
+        <text>支付方式：{{paymentInfo.paymentData.payType[paymentIndex].name}}</text>
+      </view>
+      <!-- 判断是否是余额消费 -->
+      <block wx:if="{{isLoading}}">
+        <view class="loading_container">
+          <view class="view_loading"></view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="receivePoints" wx:if="{{receivePoints.length > 0}}">
+          <text class='txt_bean'>获赠积分：{{receivePoints}}</text>
+          <image class="img_bean" src="/Resource/images/Card/coffee_bean.png"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

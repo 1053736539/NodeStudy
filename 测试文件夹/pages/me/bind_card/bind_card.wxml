@@ -1,0 +1,17 @@
+
+<!--bind_card.wxml-->
+<view class="container">
+
+  <!--顶部View-->
+  <view class="view_top">
+    <input class="ipt_pwd" placeholder="请输入卡片密码" />
+    <button class="btn_bind">绑定到我的卡包</button>
+  </view>
+
+  <!--底部View-->
+  <view class="view_bottom">
+    <text class="txt_title">操作说明</text>
+    <text class="txt_detail">1. 绑定操作说明\n2. 解绑及申请退款说明\n3. 使用说明\n4. 其他</text>
+  </view>
+
+</view>

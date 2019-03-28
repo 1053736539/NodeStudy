@@ -1,0 +1,69 @@
+<!--pages/me/pos_order/pos_order_detail/pos_order_detail.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading" wx:if="{{!loadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{loadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{loadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadPosOrderDetail" wx:if="{{loadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <!-- 加载完成 -->
+  <block wx:else>
+
+    <!-- 订单信息 -->
+    <view class='view_background'>
+      <view class='view_shop'>
+        <image class='img_shop' src='/Resource/images/Me/shop.png'></image>
+        <text class='txt_shopname'>{{shopname}}</text>
+      </view>
+      <view class='view_time'>
+        <text class='txt_time'>{{orderTime}}</text>
+      </view>
+      <view class='view_menu' wx:for="{{menuDetail}}">
+        <view class='view_drink_info'>
+          <text class='txt_name'>{{item.NAME}}</text>
+          <text class='txt_price'>{{item.PRICES}}元</text>
+          <text class='txt_count'>x{{item.QTY}}</text>
+        </view>
+        <text class='txt_spec'>{{item.SPECNAME}}</text>
+      </view>
+      <view class='view_order'>
+        <view class='view_order_detail'>
+          <text class='txt_title'>订单编号：</text>
+          <text class='txt_content'>{{payDetail.ORDERNUMBER}}</text>
+        </view>
+        <view class='view_order_detail'>
+          <text class='txt_title'>账单合计：</text>
+          <text class='txt_content'>{{payDetail.showPAYAMOUNT}}元</text>
+        </view>
+        <view class='view_order_detail' wx:if="{{arrTickets.length > 0}}">
+          <text class='txt_title'>使用卡券：</text>
+          <view class='view_tickets'>
+            <text class='txt_content' wx:for="{{arrTickets}}">{{item}}</text>
+          </view>
+        </view>
+        <view class='view_order_detail' wx:if="{{hasDiscount}}">
+          <text class='txt_title'>折扣金额：</text>
+          <text class='txt_content'>- {{payDetail.showDISCOUNT}}元</text>
+        </view>
+        <view class='view_order_detail'>
+          <text class='txt_title'>实</text>
+          <text class='txt_space'> </text>
+          <text class='txt_title'>付：</text>
+          <text class='txt_content red'>{{payDetail.showACTAMOUNT}}元</text>
+        </view>
+        <view class='view_order_detail' wx:if="{{hasIntegral}}">
+          <text class='txt_title'>获得积分：</text>
+          <text class='txt_content'>{{payDetail.INTEGRAL}}积分</text>
+        </view>
+        <view class='view_order_detail' wx:if="{{hasIntegral}}">
+          <text class='txt_title'>获得活力：</text>
+          <text class='txt_content'>{{payDetail.VITALITY}}活力值</text>
+        </view>
+      </view>
+    </view>
+
+  </block>
+</view>

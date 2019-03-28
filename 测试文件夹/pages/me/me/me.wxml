@@ -1,0 +1,95 @@
+<!--me.wxml-->
+
+<view class="container">
+
+  <block wx:if="{{isLogin}}">
+
+    <!-- 会员卡信息 -->
+    <view class="view_card_info" wx:if="{{isLogin}}">
+      <view class='view_member_tail'>
+        <view class='view_left_tail'>
+          <image class='img_member' src="{{imgLevelSrc}}"></image>
+        </view>
+        <view class="view_right_tail">
+          <text class="txt_number">{{showTel}}</text>
+          <text class="txt_member">{{userInfo.glory.name}}</text>
+        </view>
+        <image class='img_user_info' src='/Resource/images/Me/user_info.png' bindtap='tapUserInfomation'></image>
+      </view>
+
+      <view class="view_account">
+        <view class="account_item">
+          <image class='img_account_item_logo' src='/Resource/images/Card/my_alive.png'></image>
+          <text class="txt_account_item_data">{{userInfo.alive.vit}}</text>
+          <text class="txt_account_item_sort">活力值</text>
+        </view>
+
+        <view class="account_item">
+          <image class='img_account_item_logo' src='/Resource/images/Card/my_integral.png'></image>
+          <text class="txt_account_item_data">{{userInfo.pointAccount.balance}}</text>
+          <text class="txt_account_item_sort">积分</text>
+        </view>
+        <view class="account_item">
+          <image class='img_account_item_logo' src='/Resource/images/Card/my_balance.png'></image>
+          <text class="txt_account_item_data">{{userInfo.electronicAccount.balance}}元</text>
+          <text class="txt_account_item_sort">余额</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 菜单列表 -->
+    <view class='view_menu_item'>
+      <view class="view_description" wx:for="{{menuList}}">
+        <view class="view_bottom_menu" data-item="{{item}}" bindtap='didTapCell'>
+          <image class="img_card_left_title" src="{{item.src}}" />
+          <image class="img_arrow_down" src='../../../Resource/images/Me/arrow_right.png' />
+          <text class="txt_card_center_title">{{item.title}}</text>
+          <text class="txt_center_item txt_center_item_discount">{{item.remind}}</text>
+        </view>
+      </view>
+      <text class='txt_connact_us'>联系我们：customerservice@mellowercoffee.com</text>
+    </view>
+
+  </block>
+  <block wx:else>
+    <!--蒙层-->
+    <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+    </view>
+    <!--弹窗内容-->
+    <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+      <view class="view_item">
+        <text class="txt_prefix">+86</text>
+        <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+      </view>
+      <view class="view_item">
+        <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+        <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+      </view>
+      <button class="btn_verify" bindtap="didTapValidate">验证</button>
+    </view>
+
+    <view class="view_card_info_logout">
+      <view class='view_member_tail_logout' bindtap="showAlert">
+        <view class='view_left_tail_logout'>
+          <image class='img_member_logout' src="../../../Resource/images/Me/head_img.png"></image>
+        </view>
+        <view class="view_right_tail_logout">
+          <text class="txt_number_logout" >点击登录账号</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 菜单列表 -->
+    <view class='view_menu_item_not_login'>
+      <view class="view_description" wx:for="{{logoutMenuList}}">
+        <view class="view_bottom_menu" data-item="{{item}}" bindtap='didTapCellLogout'>
+          <image class="img_card_left_title" src="{{item.src}}" />
+          <image class="img_arrow_down" src='../../../Resource/images/Me/arrow_right.png' />
+          <text class="txt_card_center_title">{{item.title}}</text>
+          <text class="txt_center_item txt_center_item_discount">{{item.remind}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <text class='txt_connact_us_logout' wx:if="{{!isLogin}}">联系我们：customerservice@mellowercoffee.com</text>
+</view>

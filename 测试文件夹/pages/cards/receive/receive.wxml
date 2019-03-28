@@ -1,0 +1,78 @@
+<!--pages/cards/receive/receive.wxml-->
+<view class="container">
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading" wx:if="{{!loadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{loadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{loadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{loadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <block wx:else>
+    <!--蒙层-->
+    <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+    </view>
+    <!--弹窗内容-->
+    <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+      <view class="view_item">
+        <text class="txt_prefix">+86</text>
+        <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+      </view>
+      <view class="view_item">
+        <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+        <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+      </view>
+      <button class="btn_verify" bindtap="didTapValidate">验证</button>
+    </view>
+
+    <image class='img_header' src='/Resource/images/Card/gift_header.png'></image>
+    <view class="giftCard">
+      <block wx:if="{{cardInfo.cardtype.number == '008'||cardInfo.cardtype.number == '000'||cardInfo.cardtype.number == '012'}}">
+        <!-- 员工券 -->
+        <view class='view_ticket'>
+          <image class="img_ticket" src='{{domain}}{{cardInfo.imgUrl}}'></image>
+        </view>
+      </block>
+      <block wx:else>
+        <!-- 其它 -->
+        <view class="giftCardHeader">
+          <image src="{{domain}}{{cardInfo.imgUrl}}" mode="widthFix"></image>
+        </view>
+      </block>
+
+      <view class="giftName {{(cardInfo.cardtype.number != '008' && cardInfo.cardtype.number != '012')?'':'ticket'}}">{{cardInfo.name}}</view>
+      <view class="gift_detail" wx:if="{{cardInfo.cardtype.number != '008' && cardInfo.cardtype.number != '012'}}">
+        <text class='txt_price'>{{cardInfo.saleamount}}元</text>
+        <text class='txt_num'>x1</text>
+      </view>
+
+      <view class='view_send_info'>
+        <view class='view_left_tail'>
+          <image class='img_member' src="/Resource/images/Me/avatar_1.png"></image>
+        </view>
+        <view class="view_right_tail">
+          <text class="txt_number">{{showTel}}</text>
+          <text class="txt_member">{{senderInfo.leaveMsg}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 已登录 -->
+    <block wx:if="{{isLogin}}">
+      <!-- 可以领取 -->
+      <block wx:if="{{canReceiveCode == '201604'}}">
+        <button class="btn_receive" bindtap="tapReceive">立即领取</button>
+      </block>
+      <!-- 不可领取 -->
+      <block wx:else>
+      <view class="view_bottom_tipMsg">
+        <view class='view_tipMsg_top' wx:if="{{canReceiveCode == '201601'}}">等待朋友领取</view>
+        <view class='view_tipMsg'>{{tipMsg}}</view>
+      </view>
+      </block>
+    </block>
+    <!-- 未登录 -->
+    <block wx:else>
+      <button class="btn_receive" bindtap="tapReceive">登录领取礼物</button>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,251 @@
+/* pages/me/coffee_wallet/coffee_wallet.wxss */
+@import "../../public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+
+page{
+  background-color: #F8F8F8;
+}
+
+/* 描述 */
+.view_header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 19px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #FFFFFF;
+  font-weight: 500;
+}
+
+.view_none_line{
+  border: none;
+  padding-top: 0;
+}
+
+.txt_name {
+  font-size: 20px;
+  color: #333333;
+  padding-bottom: 20px;
+  font-weight: 500;
+}
+
+.txt_detail {
+  font-size: 12px;
+  color: #999999;
+  padding-bottom: 30px;
+  font-weight: 400;
+}
+
+.view_exchange{
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_exchange{
+  height: 30px;
+  width: 96px;
+  background-color: #444;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 15px;
+  margin-bottom: 13px;
+  margin-left: 0;
+  margin-right: 0;
+  z-index: 998;
+}
+
+.img_explain{
+  height: 23px;
+  width: 98px;
+  transform: translateX(-16px) translateY(-16px);
+  z-index: 999;
+}
+
+/* 可用张数 */
+.view_can_use{
+  height: 34px;
+  max-width: 146px;
+  border-radius: 0 100px 100px 0;
+  background-image: linear-gradient(to right, #D1AD76, #B98B45);
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.txt_can_use_num{
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 15px;
+  margin-right: 5px;
+  line-height: 34px;
+}
+
+.txt_description{
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 34px;
+  align-self: center;
+  margin-right: 15px;
+}
+
+/* 优惠券列表 */
+.view_coupon_container{
+  z-index: 999;
+  background-color: #F8F8F8;
+}
+
+.view_discount_coupon{
+  height: 130px;
+  width: 690rpx;
+  margin-left: 30rpx;
+  margin-right:30rpx;
+  z-index: 1;
+  box-shadow:0 4px 8px RGBA(0, 0, 0, 0.03);
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+/* 左边内容 */
+.view_discount_coupon .view_left_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 30px;
+  width: 200rpx;
+}
+
+.view_left_top{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+  height: 56px;
+  align-items: center;
+}
+
+.text_left_top_data{
+  display: inline-block;
+  font-size: 40px;
+  color: #DD4D4E;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.text_left_top_unit{
+  display: inline-block;
+  font-size: 16px;
+  color: #DD4D4E;
+  font-weight: 500;
+  padding-top: 18px;
+  margin: 0 auto;
+}
+
+.text_left_bottom{
+  display: inline-block;
+  font-size: 12px;
+  color: #999999;
+  width: 70px;
+  height: 17px;
+  text-align: center;
+}
+
+/* 中间内容 */
+.view_center_container{
+  display: flex;
+  flex-direction: column;
+  width: 40rpx;
+  align-items: center;
+  margin-left: 18rpx;
+  margin-right: 18rpx;
+}
+
+.view_top_circle{
+  width: 20px;
+  height: 10px;
+  border-radius:0 0 10px 10px;
+  background-color: #F8F8F8;
+}
+
+.ciew_center_line{
+  border: 1px solid #F8F8F8;
+  height:110px;
+  border-style:dotted
+}
+
+.view_bottom_circle{
+  width: 20px;
+  height: 10px;
+  border-radius:10px 10px 0 0;
+  background-color: #F8F8F8;
+  box-shadow: 0 4px 8px #F8F8F8;
+}
+
+/* 右边内容 */
+.view_right_container{
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-left: 20px;
+  width: 430rpx;
+}
+
+.view_right_top{
+  display: inline-block;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  margin-top: 14px;
+  margin-bottom: 5px;
+  overflow:hidden;
+  text-overflow:ellipsis; 
+  white-space: nowrap;
+}
+
+.view_right_center{
+  display: inline-block;
+  font-size: 10px;
+  color: #999;
+  overflow:hidden;
+  text-overflow:ellipsis; 
+  white-space: nowrap;
+}
+
+.view_right_bottom{
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 25px;
+}
+
+/* 底部文案 */
+.view_bottom_tipMsg{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  z-index: 998;
+  width: 63%;
+  margin-top: 30px;
+}
+
+.view_tipMsg_top{
+  font-size: 14px;
+  text-align: center;
+  color: #999;
+  font-weight: 500;
+  align-self: center;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+
+

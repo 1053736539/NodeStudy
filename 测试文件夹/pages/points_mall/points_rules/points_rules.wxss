@@ -1,0 +1,6 @@
+/* pages/points_mall/points_rules/points_rules.wxss */
+.img_rules {
+  width: 100%;
+  margin: 0;
+  display: block;
+}

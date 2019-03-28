@@ -1,0 +1,259 @@
+/* pages/purchase/buy_multi_card/buy_multi_card.wxss */
+@import "/pages/public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.view_card_header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.txt_name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  padding-bottom: 20px;
+}
+
+.txt_detail {
+  font-size: 14px;
+  color: #999;
+}
+
+/*卡片列表*/
+
+.view_card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.view_card .view_card_container {
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.view_card .img_container {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  background-color: #d8d8d8;
+  padding-bottom: 63%;
+  border-radius: 10px;
+}
+
+.view_card .img_container .img_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  border-radius: 10px;
+}
+
+.view_card_detail {
+  display: flex;
+  margin-top: 15px;
+  align-self: center;
+}
+
+.view_card_detail .txt_card_title {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.view_card_detail .txt_card_title.disable {
+  color: #999;
+}
+
+.view_card_detail .txt_card_desc {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.view_card_detail .txt_card_price {
+  font-size: 16px;
+  color: #dd4d4e;
+  padding-left: 20px;
+}
+
+.view_card_detail .txt_card_unit {
+  font-size: 12px;
+  align-self: flex-end;
+  color: #dd4d4e;
+}
+
+.sellOut {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+  width: 100%;
+  z-index: 998;
+}
+
+.sellOut image {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 15px;
+  bottom: 20px;
+}
+
+/* 价格和数量 */
+
+.view_card .view_card_price {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.view_card_price .txt_card_price.disable {
+  color: #999;
+}
+
+.view_card_price .txt_count {
+  font-size: 16px;
+  position: absolute;
+  left: 35px;
+  color: #666;
+}
+
+.view_card_price .view_count {
+  position: absolute;
+  right: 35px;
+  display: flex;
+}
+
+.view_card_price .view_calculate {
+  width: 30px;
+  height: 30px;
+  background-color: #434343;
+  font-size: 30px;
+  line-height: 25px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.view_card_price .view_calculate.disabled {
+  background-color: #d5d5d5;
+}
+
+.view_card_price .view_sel_count {
+  width: 48px;
+  height: 35px;
+  color: #333;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.view_card_price .view_sel_count.disabled {
+  color: #999;
+}
+
+/* 购买说明 */
+
+.view_instruction {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.view_instruction .txt_instruction_info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.view_instruction .txt_instruction {
+  padding-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* 总价和购买 */
+
+.view_purchase {
+  z-index: 999;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-top: 1px solid #d8d7d7;
+}
+
+.view_purchase .view_amount {
+  width: 70%;
+  align-self: center;
+}
+
+.view_purchase .view_amount .txt_amount_tip {
+  font-size: 16px;
+  color: #333;
+  margin-left: 15px;
+}
+
+.view_purchase .view_amount .txt_amount {
+  font-size: 16px;
+  color: #dd4d4e;
+  font-weight: 500;
+}
+
+.view_purchase .btn_purchase {
+  width: 160px;
+  height: 40px;
+  background-color: #444444;
+  border-radius: 20px;
+  text-align: center;
+  align-self: center;
+  margin-right: 15px;
+}
+
+.view_purchase .btn_purchase .txt_purchase {
+  color: #fff;
+  font-size: 16px;
+  line-height: 40px;
+  
+}
+
+.view_purchase .btn_purchase.disabled {
+  background-color: #999;
+}

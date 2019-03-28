@@ -1,0 +1,85 @@
+<!--event.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading" wx:if="{{!isLoadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{isLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <!-- 加载完成 -->
+  <block wx:else>
+    <!--蒙层-->
+    <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+    </view>
+    <!--弹窗内容-->
+    <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+      <view class="view_item">
+        <text class="txt_prefix">+86</text>
+        <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+      </view>
+      <view class="view_item">
+        <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+        <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+      </view>
+      <button class="btn_verify" bindtap="didTapValidate">验证</button>
+    </view>
+
+    <!-- 海报图片 -->
+    <image class='img_poster' mode='scaleToFill' src='{{imgUrl}}' binderror='imgError'></image>
+
+
+    <block wx:if='{{isShowBtn}}'>
+      <block wx:if="{{showGetPrize}}">
+        <view class='text_survey_container' wx:if="{{actType == '002'}}">
+          <view class='content_container content_survey_container'>
+            <image mode='scaleToFill' src='../../Resource/images/Event/icon_feedback.png' binderror='imgError'></image>
+            <text class='txt_title'>我们非常开心收到您的反馈！</text>
+            <text class='txt_subTitle1'>点击下方的按钮</text>
+            <text class='txt_subTitle2'>立即领取麦隆咖啡奉上的心意</text>
+          </view>
+        </view>
+        <!-- 下方按钮 -->
+        <button class='btn_to_verify' bindtap='showAlert'> {{btnStr}} </button>
+      </block>
+      <block wx:else>
+        <template is="temp_survey" data="{{items:items[index], indexStr:index+1, totalCount:items.length, num:toSite}}" />
+      </block>
+    </block>
+    <block wx:else>
+      <!-- 下方文案 -->
+      <view class='text_container'>
+        <view class='content_container'>
+          <text class='text_tip'>{{tipTitleStr}}</text>
+          <text class='text_tip2 {{tipContentStr == "您已经领取过卡券了"?"specail_tip":""}}'>{{tipContentStr}}</text>
+        </view>
+      </view>
+    </block>
+
+
+  </block>
+</view>
+
+<!-- 模板 -->
+<template name="temp_survey">
+  <view class='cell_container'>
+
+    <scroll-view class='survey_container' scroll-y="true" scroll-top="{{num}}">
+      <view class='survey_title'>
+        <label class='label_title'>{{items.question}}</label>
+        <label class='label_question'>【{{indexStr}}/{{totalCount}}】</label>
+      </view>
+      <checkbox-group class="radio-group" bindchange="radioChange">
+        <view class='bottom_space'></view>
+        <label class="radio {{item.checked?'is_checked':''}}" wx:for="{{items.optionList}}">
+          <label class='img_selection' style='height:20px;width:40px;' wx:if="{{false}}">选项:</label>
+          <checkbox hidden="true" value="{{index}}" checked="{{item.checked}}" />
+          <label>{{item.choosetext}}</label>
+        </label>
+        <view class='bottom_space'></view>
+      </checkbox-group>
+    </scroll-view>
+  </view>
+</template>

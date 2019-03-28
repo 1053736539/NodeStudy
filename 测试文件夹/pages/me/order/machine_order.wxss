@@ -1,0 +1,247 @@
+/* machine_order.wxss */
+@import "../../public/loading.wxss";
+page{
+  background-color: #F2F2F2;
+}
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.list_container {
+  margin-top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.view_good_item{
+  width: 690rpx;
+  margin-left: 30rpx;
+  background-color: #FFFFFF;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+/* 订单商品头部 */
+
+.order_list_head {
+  padding: 20px 0;
+  display: flex;
+  width: 690rpx;
+  flex-direction: row;
+}
+
+.order_list_head .order_list_img {
+  float: left;
+  width: 80px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  border-radius: 5px;
+}
+
+.order_list_head .order_list_img image {
+  width: 80px;
+  height: 50px;
+}
+
+.order_list_head .order_list_img .img_container image {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.order_list_head .order_list_imgGoods {
+  float: left;
+  width: 80px;
+  height: 63px;
+  position: relative;
+  overflow: hidden;
+  margin-right: 10px;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+}
+
+.order_list_head .order_list_imgGoods image {
+  width: 80px;
+  height: 63px;
+  border-radius: 5px;
+}
+
+.order_list_head .order_list_fon .orderBlock {
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.order_list_head .order_list_fon  .orderPrice {
+  font-size: 12px;
+  color: #999;
+  margin-right: 20px;
+}
+
+.view_right{
+  display: flex;
+  flex-direction: column;
+  width: 480rpx;
+}
+
+.order_list_fon_top{
+  margin-bottom: 13px;
+}
+
+.order_list_fon_bottom{
+  display: flex;
+  flex-direction: row;
+}
+
+.orderBlock {
+  float: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.orderStatus{
+  float: right;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 30rpx;
+}
+
+.orderStatus_red{
+  color: #FF5656;
+}
+
+.orderPrice {
+  font-size: 12px;
+  color: #999;
+  margin-right: 20px;
+}
+
+/* 订单详情 */
+
+.orderDetail {
+  margin: 0 20px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.orderDetail text {
+  display: block;
+}
+
+.orderDetail .orderPrice {
+  float: right;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+  margin-right: 0px;
+}
+
+.orderDetail .orderState {
+  float: right;
+  font-size: 14px;
+  font-weight: 900;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.orderDetail .orderType {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.clearBox:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.orderButt {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  height: 28px;
+}
+
+.orderButt button {
+  min-width: 80px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.friend button {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+}
+
+.friend .mooButt {
+  right: 80px;
+  margin-right: 12px;
+}
+
+.orderLoop {
+  padding-bottom: 10px;
+}
+
+.view_reciver {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 20px;
+}
+
+.view_reciver .txt_reciver {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 10px;
+}
+
+.view_count.on {
+  display: none;
+}
+
+.buttonBack{
+  border-radius: 15px;
+}
+
+.buttonBack.on {
+  background-color: #333;
+  color: #fff;
+}
+
+.img_empty{
+  height: 260rpx;
+  width: 260rpx;
+  margin: 0 auto;
+  margin-top: 280rpx;
+  text-align: center;
+  float: left;
+}

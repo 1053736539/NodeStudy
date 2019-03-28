@@ -1,0 +1,58 @@
+<!--pages/coffee_machine/coffee_machine.wxml-->
+<view class="container">
+  <!--蒙层-->
+  <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+  </view>
+  <!--弹窗内容-->
+  <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+    <view class="view_item">
+      <text class="txt_prefix">+86</text>
+      <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+    </view>
+    <view class="view_item">
+      <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+      <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+    </view>
+    <button class="btn_verify" bindtap="didTapValidate">验证</button>
+  </view>
+
+    <block wx:if="{{isListLoading}}">
+      <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReload" wx:if="{{listLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <!-- 加载完成 -->
+    <block wx:else>
+      <!--banner位-->
+        <view class='view_level_container' wx:if="{{bannerItems.length != 0}}">
+          <swiper class='main_swiper' circular='{{true}}' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,1)">
+            <block wx:for="{{bannerItems}}">
+              <swiper-item>
+                <image src="{{domain+item.imgurl}}" data-item="{{item}}" bindtap="didTapBanner" class="slide-image" />
+              </swiper-item>
+            </block>
+          </swiper>
+
+        </view>
+
+      <view class="view_card_list">
+        <block wx:for="{{goodList}}">
+          <template is="temp_full_img_card" data="{{item, index, domain}}"></template>
+        </block>
+      </view>
+
+      <view class="loading" hidden="{{!couponWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+      <!-- <view class="loading complete" hidden="{{!couponWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view> -->
+    </block>
+</view>
+
+<template name="temp_full_img_card">
+  <view class="view_img_full_cell" bindtap="didTapGood" data-card="{{item}}" data-index="{{index}}">
+    <image class="img_full" src="{{domain}}{{item.imgurl1}}"></image>
+    <text class='txt_card_head'>{{item.name}}</text>
+    <text class='txt_card_description' wx:if="{{item.price>0}}">￥{{item.price}}/{{item.unit}}</text>
+  </view>
+</template>

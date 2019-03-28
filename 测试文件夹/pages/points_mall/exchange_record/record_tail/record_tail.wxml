@@ -1,0 +1,132 @@
+<!--pages/me/order/order_tail/order_tail.wxml-->
+<view class='container'>
+  <!-- 加载中 -->
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!isLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{isLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReload" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <!-- 加载完成 -->
+  <!-- TOP -->
+  <block wx:else>
+    <view class="order_list_top">
+      <text class='txt_top_left'>订单状态: </text>
+      <text class='txt_top' wx:if="{{orderTailInfo.signal == 5}}">已退款</text>
+      <text class='txt_top' wx:else>已兑换</text>
+    </view>
+
+    <!-- 顶部显示 -->
+    <!-- 卡券 -->
+    <block wx:if="{{orderTailInfo.type == 5}}">
+      <block wx:for="{{orderTailInfo.cardentryList}}">
+        <view class='view_speclist'>
+          <view class="order_list_head">
+            <view class="order_list_img">
+              <view class="img_container">
+                <image src="{{domain}}{{item.cardStockInfo.imgurl1}}"></image>
+              </view>
+            </view>
+            <view class='view_right'>
+              <view class="order_list_fon_top">
+                <text class="orderBlock">{{orderTailInfo.name}}</text>
+              </view>
+              <view class="order_list_fon_bottom_test">
+                <text class="orderPrice">{{item.cardStockInfo.spec}}</text>
+              </view>
+              <view class="order_list_fon_bottom">
+                <text class="orderPrice">{{item.cardStockInfo.saleintegral}}积分</text>
+                <text class="orderPrice">×{{item.qty}}</text>
+              </view>
+            </view>
+          </view>
+
+          <block wx:if="{{orderTailInfo.status==1}}">
+            <view class='view_class_name'>卡券</view>
+            <view class='view_line'></view>
+            <view class='view_item_center' wx:for="{{belongings}}">
+              <text class='txt_head_left' wx:if="{{item.ticketnumber.length != 1}}">{{item.name}}</text>
+              <text class='txt_head_left' wx:if="{{item.ticketnumber.length == 1}}">{{item.ticketnumber}}</text>
+              <text class="txt_name_right" wx:if="{{item.status ==6}}">待使用</text>
+              <text class="txt_name_right" wx:if="{{item.status ==7}}">已使用</text>
+              <text class="txt_name_right" wx:if="{{item.status ==8}}">已失效</text>
+              <text class="txt_name_right" wx:if="{{item.status ==4}}">退款中</text>
+              <text class="txt_name_right" wx:if="{{item.status ==5}}">已退款</text>
+              <text class="txt_name_right" wx:if="{{orderTailInfo.fetchers.length == 0 && item.status ==12}}">已赠送</text>
+              <block wx:if="{{orderTailInfo.fetchers.length > 0 && item.status ==12}}">
+                <text class="txt_name_right" wx:if="{{orderTailInfo.user.id != userInfo.user.id}}">好友{{item.showTel}}已领取</text>
+              </block>
+            </view>
+          </block>
+        </view>
+      </block>
+    </block>
+
+    <!-- 优惠券 -->
+    <block wx:if="{{orderTailInfo.type == 6}}">
+      <block wx:for="{{orderTailInfo.couponentryList}}">
+        <view class='view_speclist'>
+          <view class="order_list_head">
+            <view class="order_list_img">
+              <view class="img_container_coupon">
+                <image src="{{domain}}{{item.couponDefineInfo.imgurl3}}"></image>
+              </view>
+            </view>
+            <view class='view_right'>
+              <view class="order_list_fon_top_coupon">
+                <text class="orderBlock">{{item.couponDefineInfo.name}}</text>
+              </view>
+              <view class="order_list_fon_bottom">
+                <text class="orderPrice">{{item.couponDefineInfo.saleintegral}}积分</text>
+                <text class="orderPrice">×{{item.qty}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+
+
+    <!-- 底部显示项目列表 -->
+    <view class="order_list_bottom">
+      <view class='view_item view_class_name'>订单信息</view>
+      <view class='view_line'></view>
+      <view class='view_item'>
+        <text class='txt_head'>订单编号</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name'>{{orderTailInfo.number}}</text>
+      </view>
+      <view class='view_item'>
+        <text class='txt_head'>下单时间</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name'>{{orderTailInfo.createtime}}</text>
+      </view>
+      <view class='view_item' wx:if="{{orderTailInfo.status==1}}">
+        <text class='txt_head'>支付时间</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name'>{{orderTailInfo.actpaydate}}</text>
+      </view>
+      <view class='view_item' wx:if="{{orderTailInfo.status==1 && orderTailInfo.paytype}}">
+        <text class='txt_head'>支付方式</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name' wx:if="{{orderTailInfo.paytype == 5}}">账户余额</text>
+        <text class='txt_name' wx:if="{{orderTailInfo.paytype == 1 || orderTailInfo.paytype == 2}}">微信支付</text>
+        <text class='txt_name' wx:if="{{orderTailInfo.paytype == 4}}">积分支付</text>
+      </view>
+      <view class='view_item'>
+        <text class='txt_head'>合计</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name'>{{payintegral}}积分</text>
+      </view>
+      <view class='view_item' wx:if="{{orderTailInfo.status==1}}">
+        <text class='txt_head'>实付</text>
+        <text class='txt_head_m'>: </text>
+        <text class='txt_name text_name_red'>{{actintegral}}积分</text>
+      </view>
+    </view>
+  </block>
+
+</view>

@@ -1,0 +1,40 @@
+<!--use_balance_card.wxml-->
+<view class="list_container">
+  <block wx:if="{{isCardLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!cardLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{cardLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{cardLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{cardLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="view_card">
+      <view class="view_img_container">
+        <image class="img_card" src="{{domain}}{{card.cardStockInfo.imgurl1}}"></image>
+      </view>
+      <view class="right_top_item">
+        <text class="txt_card_status">（{{card.statusValue}}）</text>
+      </view>
+      <button wx:if="{{card.status==1}}" class="btn_use" bindtap="didTapUse" data-card="{{card}}">充值进账户余额</button>
+      <button wx:if="{{canGift}}" class="btn_give" bindtap="didTapGive" data-card="{{card}}">赠送朋友</button>
+      <button wx:if="{{canBuyAgain}}" class="btn_use" bindtap="tapBuyAgain">再买一张</button>
+      <button wx:if="{{card.status!=1}}" class='btn_give' bindtap='tapDeleteCard' hidden='{{card.status == 4}}'>删除卡片</button>
+      <view class='view_gift' wx:if="{{card.status == 4}}">等待朋友领取</view>
+      <view class='view_gift_tip' wx:if="{{card.status == 4}}">若24小时后未被领取，卡片会退回您的卡包</view>
+    </view>
+
+    <view class="view_product">
+      <block wx:if="{{card.cardStockInfo.spec}}">
+        <text class='txt_product_name'>{{card.name}}-{{card.cardStockInfo.spec}}</text>
+      </block>
+      <block wx:else>
+        <text class='txt_product_name'>{{card.name}}</text>
+      </block>
+      <text class="txt_product_info">{{card.cardStockInfo.introduce}}</text>
+      <text class="txt_instruction">使用说明</text>
+      <text class="txt_product_info">{{card.cardStockInfo.instructions}}</text>
+    </view>
+  </block>
+</view>

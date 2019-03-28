@@ -1,0 +1,46 @@
+<!--mall.wxml-->
+
+<view class="container">
+  <image wx:if="{{false}}" class='img_list_bg' src='' mode="widthFix"></image>
+  <!-- 卡片列表 -->
+  <view class="list_container">
+
+    <block wx:if="{{isCardLoading}}">
+      <view class="view_loading" wx:if="{{!cardLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{cardLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{cardLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{cardLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+
+    <block wx:else>
+       <!--banner位-->
+        <view class='view_level_container'>
+          <swiper wx:if="{{bannerItems.length != 0}}" class='main_swiper' circular='{{true}}' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,1)">
+            <block wx:for="{{bannerItems}}">
+              <swiper-item>
+                <image src="{{domain+item.imgurl}}" data-item="{{item}}" bindtap="didTapBanner" class="slide-image" />
+              </swiper-item>
+            </block>
+          </swiper>
+          <image class="img_not_loading_banner" wx:if="{{bannerItems.length == 0}}" src="/Resource/images/not_loading.png" />
+        </view>
+
+      <view class="view_card_list">
+        <block wx:for="{{cardList}}">
+          <template is="temp_full_img_card" data="{{item, index, domain}}"></template>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 纯图片卡面模板 -->
+<template name="temp_full_img_card">
+  <view class="view_img_full_cell" bindtap="didTapCard" data-card="{{item}}">
+    <image class="img_full" src="{{domain}}{{item.imgurl1}}"></image>
+    <text class='txt_card_head'>{{item.itemName}}</text>
+    <text class='txt_card_description'>{{item.introduce}}</text>
+  </view>
+</template>

@@ -1,0 +1,122 @@
+/* pages/wallet/multi_qrcode/multi_qrcode.wxss */
+
+page {
+  background-color: #f8f8f8;
+}
+.view_bg {
+  margin:20px 15px;
+  background-color: #ffffff;
+  box-shadow:0 4px 8px RGBA(0, 0, 0, 0.13);
+  border-radius: 10px;
+}
+
+.view_title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #333;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.view_date {
+  font-size: 12px;
+  color: #999999;
+  line-height: 20px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 24px;
+  margin: 0 15px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.view_qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_qrcode > canvas {
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.barnum {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  margin-top: 14px;
+}
+
+.view_tips {
+  font-size: 12px;
+  color: #999;
+  line-height: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 按钮 */
+.view_selection {
+  display: flex;
+  z-index: 999;
+  align-self: center;
+}
+
+.view_selection .view_btn {
+  height: 88rpx;
+  width: 300rpx;
+  border-radius: 44rpx;
+  background-color: #444444;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.view_selection .view_btn.disable {
+  background-color: #d5d5d5;
+}
+
+.view_selection .view_btn.right {
+  margin-left: 40rpx;
+}
+
+.view_selection .view_btn .txt_btn {
+  font-size: 16px;
+  line-height: 40rpx;
+  color: #ffffff;
+}
+.view_selection .view_btn .txt_btn.left {
+  margin-left: 100rpx;
+}
+
+.view_selection .view_btn .img_btn {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.view_selection .view_btn .img_btn.left {
+  margin-left: 70rpx;
+}
+
+.view_selection .btn_selection {
+  width: 120px;
+  height: 44px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #444444;
+  border-radius: 22px;
+}
+
+.view_selection .btn_selection.right {
+  margin-left: 30px;
+}
+
+.view_selection .btn_selection.alone {
+  margin-left: 0px;
+}

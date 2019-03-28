@@ -1,0 +1,62 @@
+<!--pages/wallet/expired_cards/expired_cards.wxml-->
+<view class='container'>
+  <!-- 加载中 -->
+  <block wx:if="{{isLoading}}">
+    <view class="view_loading view_goods_loading" wx:if="{{!isLoadingFail}}"></view>
+    <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{isLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReload" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <!-- 加载完成 -->
+  <block wx:else>
+    <block wx:if="{{isListEmpty}}">
+      <!-- 空列表 -->
+      <view class='view_list_empty'>
+        <image class='img_list_empty' src='/Resource/images/empty.png'></image>
+        <text class='txt_list_empty'>这里是空的</text>
+      </view>
+    </block>
+    <block wx:else>
+      <!-- 清空失效卡 -->
+      <view class='view_clean_cards'>
+        <text class='txt_clean_cards' bindtap='didTapCleanExpiredCards'>一键清空失效卡</text>
+      </view>
+      <!-- 卡列表 -->
+      <template is="temp_card" wx:for="{{cardsList}}" data="{{item, domain}}"></template>
+      <view class="loading" hidden="{{!listWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+    </block>
+  </block>
+</view>
+
+<!-- 卡片模板 -->
+<template name="temp_card">
+  <view class="cell_card_flex" bindtap="didTapCard" data-card="{{item}}">
+    <view class="view_img_container">
+      <image class="img_card" src="{{domain}}{{item.cardStockInfo.imgurl2}}"></image>
+      <view class="view_card_disabled {{item.status == 1? 'off':''}}"></view>
+      <view class='view_card_info'>
+        <block wx:if="{{item.cardStockInfo.spec}}">
+          <text class='txt_card_title'>{{item.name}}-{{item.cardStockInfo.spec}}</text>
+        </block>
+        <block wx:else>
+          <text class='txt_card_title'>{{item.name}}</text>
+        </block>
+        <text class='txt_card_validity' hidden="{{item.carddefine.cardtype.number == '001'}}">使用有效期：{{item.createtimer}} 至 {{item.expirationdater}}</text>
+      </view>
+    </view>
+    <!--图片和标题-->
+    <view class="top_item_flex">
+      <!--标题和标签-->
+      <view class="status {{item.status == 1? '':'disable'}}">
+        <text class="txt_tag">{{item.statusValue}}</text>
+      </view>
+    </view>
+
+    <!--卡片名称-->
+    <!-- <view class="bottom_item">
+      <text class="txt_card_title">{{item.name}}</text>
+    </view> -->
+  </view>
+</template>

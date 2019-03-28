@@ -1,0 +1,147 @@
+/* pages/cards/receive/receiveSuccess/receiveSuccess.wxss */
+
+@import "../../../public/loading.wxss";
+
+.img_header {
+  width: 750rpx;
+  height: 204rpx;
+}
+
+
+/* 上半部分 */
+.view_top{
+  margin: 74rpx 80rpx 32rpx 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 997;
+}
+
+.img_container {
+  display: inline-block;
+  width: 53%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 34%;
+  border-radius: 10px;
+}
+
+.img_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #d8d8d8;
+}
+
+.view_top .view_ticket {
+  position: relative;
+  display: inline-block;
+  height: 0px;
+  width: 37%;
+  padding-bottom: 33%;
+  overflow: hidden;
+  margin-top: 5%;
+  margin-bottom: 10px;
+  align-self: center;
+}
+.view_top .img_ticket {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/* 下半部分 */
+.view_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 998;
+}
+
+.view_receive_success{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_success_description{
+  display: flex;
+  flex-direction: row;
+}
+
+.txt_success_description{
+  font-size: 14px;
+  color: #999999;
+  line-height: 20px;
+}
+
+.txt_card_name{
+  font-size: 30px;
+  color: #333333;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.txt_card_price{
+  font-size: 16px;
+  font-weight: 500;
+  color: #DD4D4E;
+}
+
+.view_receive_fail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt_fail_head{
+  font-size: 20px;
+  color: #333333;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.txt_fail_description{
+  font-size: 14px;
+  color: #999999;
+}
+
+/* 按钮区域 */
+.view_buttons {
+  display: flex;
+  margin-top: 73px;
+  width: 78%;
+  align-self: center;
+  z-index: 999;
+}
+
+.view_buttons .btn_back {
+  width: 150px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  background-color: #fff;
+  border: 1px solid #444;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+
+.view_buttons .btn_check {
+  width: 150px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #444444;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 44px;
+}
+
+.btn_check text{
+  line-height: 44px;
+}

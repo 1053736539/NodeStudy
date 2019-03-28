@@ -1,0 +1,141 @@
+<!--wallet.wxml-->
+<view class="container">
+  <block wx:if="{{isLogin}}">
+    <block wx:if="{{isCardTypeLoading}}">
+      <view class="view_loading view_goods_loading" wx:if="{{!cardTypeLoadingFail}}"></view>
+      <image class='img_loading_fail img_loading_fail_goods' src='/Resource/images/load_fail.png' wx:if="{{cardTypeLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{cardTypeLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{cardTypeLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='separator'></view>
+      <view class="view_header" bindtap='tapBindCard'>
+        <image class='img_header' src='/Resource/images/wallet/bind.png'></image>
+        <text class="txt_title">兑换卡券</text>
+        <view class='txt_more'>
+          <image class="img_right" src="/Resource/images/Me/arrow_right.png"></image>
+        </view>
+      </view>
+      <view class="separator"></view>
+      <!-- 会员券 -->
+      <view class="view_header">
+        <image class='img_header' src='/Resource/images/wallet/ticket_logo.png'></image>
+        <text class="txt_title">我的券（{{totalTickets}}）</text>
+        <text class='txt_more' bindtap='tapCheckMoreTickets'>查看更多></text>
+      </view>
+      <block wx:for="{{showTicketsList}}">
+        <template is="temp_ticket" data="{{item, domain}}"></template>
+      </block>
+      <!-- 会员卡 -->
+      <view class="view_header">
+        <image class='img_header' src='/Resource/images/wallet/card_logo.png'></image>
+        <text class="txt_title">我的卡（{{totalCards}}）</text>
+        <text class='txt_more' bindtap='tapCheckMoreCards'>查看更多></text>
+      </view>
+      <block wx:for="{{showCardsList}}">
+        <template is="temp_card" data="{{item, domain}}"></template>
+      </block>
+    </block>
+  </block>
+  <block wx:else>
+    <!--蒙层-->
+    <view class="view_mask" bindtap="closeAlert" wx:if="{{canShowAlert}}">
+    </view>
+    <!--弹窗内容-->
+    <view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+      <view class="view_item">
+        <text class="txt_prefix">+86</text>
+        <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+      </view>
+      <view class="view_item">
+        <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+        <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+      </view>
+
+      <button class="btn_verify" bindtap="didTapValidate">验证</button>
+
+    </view>
+
+    <!-- 未登录提示 -->
+    <image class='img_not_login' src='/Resource/images/not_login.png' wx:if="{{!isLogin}}"></image>
+    <text class="txt_not_login" wx:if="{{!isLogin}}">欢迎使用  麦隆咖啡  小程序</text>
+
+    <!-- 登录按钮 -->
+    <view class="view_login">
+      <button class="btn_login" bindtap="showAlert" wx:if="{{!isLogin}}">登录 / 注册</button>
+    </view>
+  </block>
+</view>
+
+<!--模板-->
+<template name="temp_header">
+  <view class="view_header">
+    <block wx:if="{{item.number == '000'}}">
+      <image class='img_header' src='/Resource/images/wallet/ticket_logo.png'></image>
+    </block>
+    <block wx:else>
+      <image class='img_header' src='/Resource/images/wallet/card_logo.png'></image>
+    </block>
+    <text class="txt_title">{{item.name}}（{{count}}）</text>
+    <text class='txt_more' bindtap='tapCheckMore' data-type='{{item.number}}'>查看更多></text>
+  </view>
+</template>
+
+<!-- 卡片 -->
+<template name="temp_card">
+  <view class="cell_card_flex" bindtap="didTapCard" data-card="{{item}}">
+    <view class="view_img_container">
+      <image class="img_card" src="{{domain}}{{item.cardStockInfo.imgurl2}}"></image>
+      <view class="view_card_disabled {{item.status == 1? 'off':''}}"></view>
+      <view class='view_card_info'>
+        <block wx:if="{{item.cardStockInfo.spec}}">
+          <text class='txt_card_title'>{{item.name}}-{{item.cardStockInfo.spec}}</text>
+        </block>
+        <block wx:else>
+          <text class='txt_card_title'>{{item.name}}</text>
+        </block>
+        <text class='txt_card_validity' hidden="{{item.carddefine.cardtype.number == '001'}}">使用有效期：{{item.createtimer}} 至 {{item.expirationdater}}</text>
+      </view>
+    </view>
+    <!--图片和标题-->
+    <view class="top_item_flex">
+      <!--标题和标签-->
+      <view class="status {{item.status == 1? '':'disable'}}">
+        <text class="txt_tag">{{item.statusValue}}</text>
+      </view>
+    </view>
+
+    <!--卡片名称-->
+    <!-- <view class="bottom_item">
+      <text class="txt_card_title">{{item.name}}</text>
+    </view> -->
+  </view>
+</template>
+
+<template name="temp_ticket">
+  <view class="cell_ticket" bindtap="didTapCard" data-card="{{item}}">
+    <view class='left_container'>
+      <block wx:if="{{item.status == 1}}">
+        <image class='img_ticket' src='{{domain}}{{item.cardStockInfo.imgurl1}}'></image>
+      </block>
+      <block wx:else>
+        <image class='img_ticket' src='{{domain}}{{item.cardStockInfo.imgurl1}}'></image>
+        <view class="view_ticket_disabled"></view>
+      </block>
+    </view>
+    <view class='right_container'>
+      <view class='status {{item.status == 1? "":"disable"}}'>{{item.statusValue}}</view>
+      <view class='text_container'>
+        <block wx:if="{{item.cardStockInfo.spec}}">
+          <text class='txt_title {{item.status == 1? "":"disable"}}'>{{item.name}}-{{item.cardStockInfo.spec}}</text>
+        </block>
+        <block wx:else>
+          <text class='txt_title {{item.status == 1? "":"disable"}}'>{{item.name}}</text>
+        </block>
+        <text class='txt_expiry_date {{item.status == 1? "":"disable"}}'>使用有效期：{{item.createtimer}}至{{item.expirationdater}}</text>
+      </view>
+    </view>
+  </view>
+</template>

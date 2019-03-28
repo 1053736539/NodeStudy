@@ -1,0 +1,52 @@
+<!--pages/me/user_infomation/user_infomation.wxml-->
+<view class='container'>
+
+  <!-- 红包奖励提示 -->
+  <view class='view_tips' wx:if="{{!hasReward}}">完整填写个人资料可获得咖啡红包奖励</view>
+  <!-- 菜单列表 -->
+  <view class='view_list'>
+    <!-- 手机号码 -->
+    <view class="view_list_item">
+      <view class="view_list_item_content">
+        <text class="txt_title">手机号</text>
+        <text class='text_detail_number'>{{userInfo.user.tel}}</text>
+      </view>
+    </view>
+    <!-- 性别 -->
+    <view class="view_list_item">
+      <view class="view_list_item_content">
+        <image class="img_arrow_down" src='/Resource/images/Me/arrow_right.png' />
+        <text class="txt_title">性</text>
+        <text class="txt_space">别</text>
+        <picker bindchange="didGenderChange" range="{{genders}}">
+          <text class='text_detail'>{{gender}}</text>
+        </picker>
+      </view>
+    </view>
+    <!-- 生日 -->
+    <view class="view_list_item">
+      <view class="view_list_item_content">
+        <image class="img_arrow_down" src='/Resource/images/Me/arrow_right.png' />
+        <text class="txt_title">生</text>
+        <text class="txt_space">日</text>
+        <picker mode="date" value="1980-01-01" start="1910-01-01" end="{{nowDate}}" bindchange="didDateChange">
+          <text class='text_detail'>{{date}}</text>
+        </picker>
+      </view>
+    </view>
+    <!-- 行业 -->
+    <view class="view_list_item">
+      <view class="view_list_item_content" bindtap='tapTrade'>
+        <image class="img_arrow_down" src='/Resource/images/Me/arrow_right.png' />
+        <text class="txt_title">行</text>
+        <text class="txt_space">业</text>
+        <text class='text_detail'>{{trade}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 微信资料导入 -->
+  <button class='btn_wechat' open-type="getUserInfo" lang='zh_CN' bindgetuserinfo='didGotUserInfo'>一键导入微信资料
+  </button>
+
+  <button class='btn_submit' bindtap='tapSubmit'>保存</button>
+</view>

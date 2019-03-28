@@ -1,0 +1,61 @@
+<!--pages/cards/my_qrcode/my_qrcode.wxml-->
+<view class='container'>
+  <!-- 会员信息 -->
+  <block wx:if="{{isLogin}}">
+    <block wx:if="{{isListLoading}}">
+      <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="didTapRefresh" wx:if="{{listLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="view_card_info">
+        <view class='view_member_tail'>
+          <view class='view_left_tail'>
+            <image class='img_member' src="{{imgLevelSrc}}"></image>
+          </view>
+          <view class="view_right_tail">
+            <text class="txt_number">{{showTel}}</text>
+            <view class='view_vip_inf'>
+              <text class="txt_member">{{userInfo.glory.name}}</text>
+              <text class='txt_staff' wx:if="{{userInfo.user.staffRemark}}">——{{userInfo.user.staffRemark}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 分割线 -->
+        <view class='view_line'></view>
+
+        <view class="view_account">
+          <view class="account_item" bindtap='tapRechargeRecord'>
+            <view class="view_center_crl">
+              <image class='img_account_item_logo' src='/Resource/images/Card/my_balance.png'></image>
+              <text class="txt_account_item_data">余额：{{userInfo.electronicAccount.balance}}元</text>
+            </view>
+          </view>
+          <view class="account_item">
+            <view class="view_center_crl">
+              <image class='img_account_item_logo' src='/Resource/images/Card/available_card.png'></image>
+              <text class="txt_account_item_data">可用卡券：{{cardSum}}张</text>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="view_qrcode">
+        <view class="barnum">{{userInfo.user.number}}</view>
+        <canvas canvas-id="qrcode" />
+        <text class='txt_description'>{{advList.content}}</text>
+        <text class='txt_tip'>本页面的二维码包含了您的会员账户信息，仅用于麦隆咖啡线下门店付款时向店员出示，请勿发送给他人。</text>
+        <view class="view_refresh" bindtap='didTapRefresh'>
+          <image class='img_refresh' src='/Resource/images/Card/refresh.png'></image>
+          <text class="txt_refresh">刷新</text>
+        </view>
+      </view>
+    </block>
+  </block>
+
+</view>

@@ -1,0 +1,15 @@
+<!--pages/coffee_machine/coffee_holder/coffee_holder.wxml-->
+<view class="container">
+  <block wx:if="{{isLoading}}">
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{isLoadingFail}}"></image>
+    <text class='txt_loading_fail' wx:if="{{isLoadingFail}}">{{tipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCards" wx:if="{{isLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <!-- 跳转对应界面 -->
+  <block wx:else>
+
+  </block>
+</view>

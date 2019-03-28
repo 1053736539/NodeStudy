@@ -1,0 +1,118 @@
+/*蒙层*/
+
+.view_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*弹窗内容*/
+
+.view_alert {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 5px;
+}
+
+.view_alert .view_item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/*会员等级信息*/
+
+.view_level_container {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 74%;
+  height: 0px;
+}
+
+.img_mellower {
+  width: 129px;
+  height: 129px;
+  align-self: center;
+  margin: 0;
+}
+
+.img_not_login{
+  margin-top: 320rpx;
+  align-self: center;
+  height: 260rpx;
+  width: 260rpx;
+  margin-bottom: 16rpx;
+}
+
+.txt_not_login{
+   font-size: 16px;
+   color: #999999;
+   font-family: PingFangSC;
+   text-align: center;
+}
+
+.btn_login {
+  width: 200px;
+  height: 48px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #444444;
+  border-radius: 24px;
+  text-align: center;
+  line-height: 48px;
+  margin-top: 35px;
+}
+
+/* 前缀 */
+
+.txt_prefix {
+  font-size: 15px;
+  color: #666666;
+  padding-left: 10px;
+}
+
+/*输入框*/
+
+.view_alert .ipt_number {
+  margin: 10px;
+  font-size: 15px;
+}
+
+/*获取验证码按钮*/
+
+.view_alert .btn_get_verify {
+  font-size: 12px;
+  height: 30px;
+  width: 100px;
+  border: 1px solid #333;
+  border-radius: 15px;
+}
+
+button {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*验证按钮*/
+
+.view_alert .btn_verify {
+  margin: 25px;
+  margin-top: 20px;
+  color: #ffffff;
+  background-color: #333333;
+  border-radius: 23px;
+}

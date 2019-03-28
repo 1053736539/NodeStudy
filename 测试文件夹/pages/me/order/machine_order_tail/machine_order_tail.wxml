@@ -1,0 +1,81 @@
+<view class='container'>
+
+  <!-- 顶部显示 -->
+  <view class="order_list_head" >
+    <view class="order_list_img">
+      <view class="img_container">
+        <image src="{{domain}}{{orderTailInfo.coffeentryList[0].drinkInfo.imgurl1}}"></image>
+      </view>
+    </view>
+
+    <view class='view_right'>
+      <view class="order_list_fon_top">
+        <text class="orderBlock">{{orderTailInfo.showName}}</text>
+        <!-- 订单状态 -->
+        <text class="orderStatus orderStatus_red" wx:if="{{signal ==0}}">待支付</text>
+        <text class="orderStatus" wx:if="{{signal ==1}}">已完成</text>
+        <text class="orderStatus" wx:if="{{signal ==-1}}">已关闭</text>
+        <text class="orderStatus" wx:if="{{signal ==4}}">退款中</text>
+        <text class="orderStatus" wx:if="{{signal ==5}}">已退款</text>
+      </view>
+      <view class="order_list_fon_bottom">
+        <text class="orderPrice">{{orderTailInfo.coffeentryList[0].price}}元</text>
+        <text class="orderPrice">×{{orderTailInfo.coffeentryList[0].qty}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部显示项目列表 -->
+  <view class="order_list_bottom">
+    <view class='view_item view_class_name'>订单信息</view>
+    <view class='view_line'></view>
+    <view class='view_item'>
+      <text class='txt_head'>订单编号</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{orderTailInfo.number}}</text>
+    </view> 
+    <view class='view_item'>
+      <text class='txt_head'>下单时间</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{orderTailInfo.createtime}}</text>
+    </view>
+    <view class='view_item'wx:if="{{orderTailInfo.status==1}}">
+      <text class='txt_head'>支付时间</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{orderTailInfo.actpaydate}}</text>
+    </view>
+    <view class='view_item' wx:if="{{orderTailInfo.status==1 && orderTailInfo.paytype}}">
+      <text class='txt_head'>支付方式</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name' wx:if="{{orderTailInfo.paytype == 5}}">余额支付</text>
+      <text class='txt_name' wx:if="{{orderTailInfo.paytype == 1 || orderTailInfo.paytype == 2}}">微信支付</text>
+      <text class='txt_name' wx:if="{{orderTailInfo.paytype == 4}}">积分支付</text>
+    </view>
+    <view class='view_item'>
+      <text class='txt_head'>合计</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{payamount}}元</text>
+    </view>
+    <view class='view_item' wx:if="{{orderTailInfo.couponamount}}">
+      <text class='txt_head'>咖啡红包</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{couponamount}}元</text>
+    </view>
+   <view class='view_item' wx:if="{{orderTailInfo.status==1}}">
+      <text class='txt_head'>实付</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name text_name_red'>{{actamount}}元</text>
+    </view>
+    <view class='view_item' wx:if="{{orderTailInfo.giftAccountFlow.qty > 0}}">
+      <text class='txt_head'>获得积分</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name'>{{qty}}积分</text>
+    </view>
+    <view class='view_item' wx:if="{{orderTailInfo.status==0}}">
+      <text class='txt_head'>需付</text>
+      <text class='txt_head_m'>: </text>
+      <text class='txt_name text_name_red'>{{payamount}}元</text>
+    </view>
+  </view>
+
+</view>

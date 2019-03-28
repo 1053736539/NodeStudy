@@ -1,0 +1,36 @@
+/* rechargeSucc.wxss */
+.content{
+  margin:0 20px;
+  height:auto;
+  text-align: center;
+}
+ .content .img{
+margin-top:60px;
+margin-bottom:15px;
+ }
+ .content .img image{
+   height:20px;
+   width:20px;
+   vertical-align: middle;
+   margin-right:8px;
+ }
+ .content .img  text{
+   color: #333;
+   font-size: 18px;
+   font-weight: 900;
+ }
+ .content .fon{
+  font-size: 14px;
+  color: #333;
+ }
+ .content button{
+   height:44px;
+   width:260px;
+   background-color: #fff;
+   border:1px solid #333;
+   font-size: 16px;
+   line-height: 44px;
+   color: #333;
+   margin-top:40px;
+   border-radius: 22px;
+ }

@@ -1,0 +1,387 @@
+/* buy_balance.wxss */
+@import "/pages/public/loading.wxss";
+@import "../../../utils/loginManager/loginMgr.wxss";
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.view_card_header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.txt_name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  padding-bottom: 10px;
+}
+
+.txt_detail {
+  font-size: 14px;
+  color: #999;
+  padding-bottom: 20px;
+}
+
+/* 购物车 */
+.view_cart {
+  width: 100%;
+  height: 59px;
+  position: fixed;
+  z-index: 999;
+  bottom: 0px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #EFEFEF;
+}
+
+.cart_left {
+  width: 50%;
+  display: flex;
+}
+
+.cart_right {
+  width: 50%;
+}
+
+.txt_amount_header {
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.txt_amount {
+  font-size: 16px;
+  text-align: end;
+  color: #DD4D4E;
+  font-weight: 500;
+}
+
+.btn_buy {
+  width: 160px;
+  height: 40px;
+  background-color: #444444;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/*卡片列表*/
+
+.view_card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.view_card_absolut{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-bottom: 63%;
+  border-radius: 4px;
+  width:100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 997;
+  display: block;
+}
+.view_card_absolut.on{
+  display: none;
+}
+.sellOut{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+  border-radius: 4px;
+  width:100%;
+  z-index: 998;
+}
+.sellOut image{
+  position: absolute;
+  width: 50px;
+  height:50px;
+  right:15px;
+  bottom:20px;
+}
+.img_container {
+  display: block;
+  width: 100%;
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 63%;
+  border-radius: 4px;
+  
+}
+
+.img_card {
+  position: absolute;
+  width: 100%;
+  height: 139px;
+  z-index: 9;
+}
+
+.view_card_info {
+  margin-top: 43px;
+  margin-bottom: 43px;
+  z-index: 996;
+  align-self: center;
+  width: 268px;
+  height: 126px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt_card_title {
+  font-size: 16px;
+  color: #333;
+  line-height: 28px;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.txt_card_desc {
+  font-size: 10px;
+  color: #999;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.txt_card_price {
+  font-size: 24px;
+  color: #333;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+.falsBuy{
+  height: 50px;
+  width:100%;
+}
+
+.view_instruction {
+  display: flex;
+  flex-direction: column;
+}
+
+.view_instruction .txt_instruction_info {
+  font-size: 14px;
+  line-height: 20px;
+  color: #999999;
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.view_instruction .txt_instruction {
+  padding-top: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.view_card_column {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.view_card_column .view_container_column {
+  width: 220px;
+  position: relative;
+  height: 139px;
+  overflow: hidden;
+  background-color: #d8d8d8;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.view_card_column .view_container_column .view_card_absolut_column{
+  position: absolute;
+  width:220px;
+  height: 139px;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 997;
+  display: inline-block;
+}
+
+.view_card_column .view_container_column .view_card_absolut_column.disable{
+  display: none;
+}
+
+.view_card_column .view_card_detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view_card_column .txt_card_title_column {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 15px;
+}
+
+.view_card_column .txt_card_price_column.disable {
+  color: #999;
+}
+
+.view_specification{
+  height: 50px;
+  left: 15px;
+  right:15px;
+  border-radius: 10px;
+  background-color: #F8F8F8;
+  margin-top: 28px;
+  align-items: center;
+}
+
+.txt_card_left_title{
+  line-height: 50px;
+  font-size: 16px;
+  margin-left: 15px;
+  color: #666666;
+  float: left;
+  font-weight: 500;
+}
+
+.txt_card_center_title{
+  line-height: 50px;
+  font-size: 16px;
+  color: #DD4D4E;
+  float: right;
+  font-weight: 500;
+}
+
+.img_arrow_down{
+  height: 30px;
+  width: 30px;
+  float: right;
+  margin: 10px 10px 10px 0;
+}
+
+/* 选择卡片规格弹窗 */
+.view_drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.view_drawer_attr_box {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  background-color: #F8F8F8;
+  -webkit-border-radius: 10px 10px 0 0; 
+  -moz-border-radius: 10px 10px 0 0; 
+  border-radius: 10px 10px 0 0; 
+}
+
+.drawer_attr_content{
+  display: flex;
+  flex-direction: column;
+}
+
+.view_drawer_head {
+  height: 50px;
+  background-color: #fff;
+  border-bottom: #EDEDED solid 1px;
+  -webkit-border-radius: 10px 10px 0 0; 
+  -moz-border-radius: 10px 10px 0 0; 
+  border-radius: 10px 10px 0 0; 
+}
+
+.txt_head{
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  color: #333333;
+  font-size: 18px;
+  margin-left: 300rpx;
+  margin-bottom: 15rpx;
+}
+
+.img_cancel{
+  float: right;
+  height: 20px;
+  width: 20px;
+  margin-right: 20rpx; 
+  margin-top: 30rpx;
+}
+
+.view_type_list{
+  height: 50px;
+  margin: 15rpx 30rpx;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+}
+
+.txt_money{
+  float: left;
+  color: #494949;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 30rpx;
+}
+
+.img_choose{
+  float: right;
+  height: 40rpx;
+  width: 40rpx;
+  margin: 30rpx 30rpx 30rpx 0;
+}
+
+.cancel {
+  height: 50px;
+  background-color: #fff !important;
+  border-top: 1px solid #eee;
+  line-height: 85px;
+  margin-top: 15rpx;
+}
+
+.cancel button {
+  width: 100%;
+  height: 50px;
+  background-color: #444444;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 50px;
+  border-radius: 0 0 0 0;
+}

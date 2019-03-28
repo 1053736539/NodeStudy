@@ -1,0 +1,122 @@
+/* pages/cards/giftCard/giftCard.wxss */
+
+.img_header {
+  width: 750rpx;
+  height: 204rpx;
+}
+
+.giftCard {
+  margin: 0 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.giftCard .giftCardHeader {
+  position: relative;
+  display: inline-block;
+  height: 0px;
+  width: 44%;
+  padding-bottom: 28%;
+  overflow: hidden;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  align-self: center;
+}
+
+.giftCard .giftCardHeader image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.giftCard .view_ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  padding-top: 14px;
+}
+
+.giftCard .img_ticket {
+  width: 120px;
+  height: 106px;
+}
+
+.gift_name {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.gift_name.ticket {
+  margin-bottom: 10%;
+}
+
+.gift_detail {
+  text-align: center;
+  font-size: 12px;
+  color: #999999;
+  margin-bottom: 10%;
+}
+
+.gift_detail .txt_price {
+  font-size: 14px;
+  color: #dd4d4e;
+}
+
+.gift_detail .txt_count {
+  font-size: 14px;
+  color: #999999;
+  padding-left: 10px;
+}
+
+.giftCardText {
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 10px;
+  width: 78%;
+  height: 60px;
+  align-self: center;
+}
+
+.giftCardText textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+button {
+  margin-top: 30%;
+  width: 260px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #444444;
+  font-size: 16px;
+  z-index: 1000;
+  color: #fff;
+  border-radius: 22px;
+}
+
+.giftPlace {
+  font-size: 14px;
+  color: #999;
+}
+
+.gift_tip {
+  text-align: center;
+  font-size: 12px;
+  color: #999999;
+  padding-left: 55px;
+  padding-right: 55px;
+  z-index: 998;
+  margin-top: 10%;
+}

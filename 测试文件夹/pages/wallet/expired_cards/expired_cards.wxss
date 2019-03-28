@@ -1,0 +1,126 @@
+/* pages/wallet/expired_cards/expired_cards.wxss */
+@import "/pages/public/loading.wxss";
+/* 加载 */
+
+.loading_container {
+  width: 100%;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.loading_container>view {
+  display: inline-block;
+}
+
+/* 空列表 */
+.view_list_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.view_list_empty .img_list_empty {
+  width: 260rpx;
+  height: 260rpx;
+}
+
+.view_list_empty .txt_list_empty {
+  font-size: 12px;
+  color: #999999;
+}
+
+
+/* 清空失效卡 */
+.view_clean_cards {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt_clean_cards {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid #333333;
+  padding: 0px 15px;
+}
+
+/* 卡Cell */
+.cell_card_flex {
+  margin: 0 20px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.view_img_container {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 27%;
+  height: 0px;
+  border-radius: 10px;
+}
+
+.view_img_container image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.view_card_disabled{
+  position: absolute;
+  background-color: #ffffff;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 27%;
+  width:100%;
+  z-index: 997;
+  opacity: 0.4;
+}
+
+.view_card_disabled.off {
+  background-color: #000000;
+}
+
+.status {
+  z-index: 999;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  height: 18px;
+  width: 44px;
+  line-height: 18px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  background-color: #C1A06E;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.status.disable {
+  background-color: #999999;
+}
+
+.view_card_info {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 20px;
+  transform: translateY(50%);
+  z-index: 998;
+}
+
+.txt_card_title {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.txt_card_validity {
+  font-size: 10px;
+  color: #ffffff;
+}

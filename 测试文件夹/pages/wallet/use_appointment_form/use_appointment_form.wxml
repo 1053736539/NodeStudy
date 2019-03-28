@@ -1,0 +1,43 @@
+<!--pages/wallet/use_appointment_form/use_appointment_form.wxml-->
+<scroll-view scroll-y>
+  <view class=' fillbg'>
+    <view class='flex_c_c_col '>
+      <view class='w_630 pad_r30 pad_t30 pad_l30 whitebg top_20 radius_10 view_list_item'>
+        <view class='font_28 color_49'>城市（门店）</view>
+        <view class='whitebg flex_c_bet pad_t20 pad_b30 '>
+          <picker class='flex_1' mode='multiSelector' bindcolumnchange='bindcolumnchange' range="{{regionList}}" value="{{regionListIndex}}" bindchange="bindRegionChange">
+            <view class="picker font_32  color_0 " wx:if="{{regionList}}">
+              {{regionList[0][regionListIndex[0]]}}-{{regionList[1][regionListIndex[0]]}}-{{regionList[2][regionListIndex[0]]}}
+            </view>
+            <view class='font_32 color_c flex_1 ' wx:else>请选择城市（门店）</view>
+          </picker>
+          <view class='flex_1'>
+            <image class="w_60 h_60 block" src='/Resource/images/Me/arrow_right.png' />
+          </view>
+        </view>
+      </view>
+
+
+      <view class='w_630 pad_r30 pad_t30 pad_l30  whitebg top_30 radius_10 view_list_item'>
+        <view class='font_28 color_49'>兑换时间</view>
+        <view class='whitebg flex_c_bet pad_t20 pad_b30' bindchange="didDateChange">
+          <picker mode="date" value="1980-01-01" start="1910-01-01" end="{{nowDate}}" bindchange="didDateChange">
+            <view class="picker font_32  color_0 flex_1" wx:if="{{date}}">
+              {{date}}
+            </view>
+            <view class='font_32 color_c flex_1 ' bindchange="didDateChange" wx:else>请选择兑换时间</view>
+          </picker>
+          <image bindchange="didDateChange" class="w_60 h_60 block" src='/Resource/images/Me/arrow_right.png' />
+        </view>
+      </view>
+
+
+      <view class='flex_c_c pad_t80'>
+        <view class='bg_44 white font_32 w_520 flex_c_c pad_t25 pad_b25 radius_50'>预约</view>
+      </view>
+
+
+
+    </view>
+  </view>
+</scroll-view>

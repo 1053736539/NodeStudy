@@ -1,0 +1,35 @@
+/* bind_card.wxss */
+
+.view_top {
+  margin: 15px;
+}
+
+.view_top .btn_bind {
+  margin-top: 15px;
+  width: 200px;
+}
+
+.ipt_pwd {
+  font-size: 14px;
+  margin-bottom: 30px;
+  padding-left: 15px;
+  height: 50px;
+  border: lightgray solid 0.5px;
+  border-radius: 7px;
+}
+
+.view_bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-top: 50px;
+  border-top: lightgray solid 1px;
+}
+
+.view_bottom .txt_title {
+  font-size: 16px;
+}
+
+.view_bottom .txt_detail {
+  font-size: 12px;
+}

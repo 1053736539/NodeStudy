@@ -1,0 +1,72 @@
+<!--machine_order.wxml-->
+<view class="container">
+  <view class="list_container">
+    <!-- 加载中 -->
+    <block wx:if="{{isListLoading}}">
+      <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+      <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+      <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+      <view class="view_login">
+        <button class="btn_reloading" bindtap="tapReloadOrderList" wx:if="{{listLoadingFail}}">重新加载</button>
+      </view>
+    </block>
+    <!-- 加载完成 -->
+    <block wx:else>
+
+      <!-- 列表为空 -->
+      <image class='img_empty' src='/Resource/images/empty.png' wx:if="{{isListEmpty}}"></image>
+      <text class="txt_tip_msg" wx:if="{{isListEmpty}}">这里是空的</text>
+
+      <view class='view_good_item' wx:for="{{orderList}}">
+        <template is="order_list_headCard" data="{{item,index,orderList,domain}}"></template>
+        <template is="orderAll" data="{{item, userInfo}}"></template>
+      </view>
+
+      <view class="loading" hidden="{{!orderRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!orderRefreshFtInfo.searchLoadingComplete}}">已加载全部</view>
+    </block>
+  </view>
+</view>
+
+<template name="order_list_headCard">
+  <view class="order_list_head clearBox" bindtap='tapToOrderTail' data-index="{{index}}">
+    <view class="order_list_img">
+      <view class="img_container">
+        <image src="{{domain}}{{item.coffeentryList[0].drinkInfo.imgurl1}}"></image>
+      </view>
+    </view>
+    <view class='view_right'>
+      <view class="order_list_fon_top">
+        <text class="orderBlock">{{item.showName}}</text>
+        <!-- 订单状态 -->
+        <text class="orderStatus orderStatus_red" wx:if="{{item.signal ==0}}">待支付</text>
+        <text class="orderStatus" wx:if="{{item.signal ==1}}">已完成</text>
+        <text class="orderStatus" wx:if="{{item.signal ==-1}}">已关闭</text>
+        <text class="orderStatus" wx:if="{{item.signal ==4}}">退款中</text>
+        <text class="orderStatus" wx:if="{{item.signal ==5}}">已退款</text>
+      </view>
+      <view class="order_list_fon_bottom">
+        <text class="orderPrice">{{item.coffeentryList[0].price}}元</text>
+        <text class="orderPrice">×{{item.coffeentryList[0].qty}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="orderAll">
+  <view class="orderLoop">
+    <view class="orderDetail">
+      <text class="orderType">{{item.createtime}}</text>
+      
+      <view class="clearBox">
+        <block wx:if="{{item.signal ==-1 || item.signal ==0}}">
+          <text class="orderPrice">合计：{{item.payamount}}元</text>
+        </block>
+        <block wx:else>
+          <text class="orderPrice">合计：{{item.actamount}}元</text>
+        </block>
+      </view>
+
+    </view>
+  </view>
+</template>

@@ -1,0 +1,145 @@
+/* pages/coffee_machine/coffee_machine.wxss */
+@import "/pages/public/loading.wxss";
+@import "../../utils/loginManager/loginMgr.wxss";
+
+.txt_loading {
+  text-align: center;
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center; 
+  font-size: 12px;
+  color: #999999;
+}
+
+.img_loading{
+  width: 130px;
+  height: 130px;
+  align-self: center;
+  margin-top: 380rpx;
+  margin-bottom: 10px;
+}
+
+.txt_loading_fail {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #999999;
+  font-size: 12px;
+}
+
+/* 登录后的页面 */
+
+page {
+  background-color: #f8f8f8;
+}
+
+
+.loading_container>view {
+  display: inline-block;
+}
+
+.list_container {
+  margin-top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_containerTop {
+  margin-top: 61px;
+}
+
+
+/**/
+.view_level_container {
+  display:flex;
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  height:0px;
+  padding-bottom: 494rpx;
+  background-color: #F0F0F0;
+}
+
+.main_swiper {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  width: 750rpx;
+  height: 400rpx;
+  /* border: 2px solid #333; */
+  border-radius: 15px;
+}
+
+.img_not_loading_banner{
+  display:inline-block;
+  height: 74px;
+  width: 145px;
+  margin: 0 auto;
+  margin-top: 87px;
+}
+
+.main_swiper {
+  width: 100%;
+  height: 492rpx;
+  border-radius: 5px;
+}
+
+.slide-image{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+/* 卡列表 */
+.view_card_list{
+  margin-top: 10px;
+}
+
+.view_img_full_cell {
+  display: inline-block;
+  flex-direction: column;
+  width: 340rpx;
+  vertical-align: top;
+  margin-bottom: 30rpx;
+  margin-left: 24rpx;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.img_full {
+  display: inline-block;
+  width: 300rpx;
+  height: 300rpx;
+  align-self: center;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  border-radius: 4px;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.txt_card_head{
+  display: inline-block;
+  color: #333333;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 20rpx;
+  margin-bottom: 10rpx;
+  width: 330rpx;
+  overflow: hidden;
+}
+
+.txt_card_description{
+  display: inline-block;
+  color: #DD4D4E;
+  font-size: 12px;
+  line-height: 17px;
+  margin-left: 20rpx;
+  width: 330rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

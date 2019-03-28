@@ -1,0 +1,52 @@
+<view class="container">
+  <block wx:if="{{isListLoading}}">
+    <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReloadCouponList" wx:if="{{listLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+  <!-- 加载完成 -->
+  <block wx:else>
+    <view class='view_coupon_container'>
+      <block wx:for="{{couponGroupList}}">
+        <template is="temp_discount_coupon" data="{{item, index}}"></template>
+      </block>
+    </view>
+
+    <!-- 列表为空 -->
+    <image class='img_empty' src='/Resource/images/empty.png' wx:if="{{couponQty==0}}"></image>
+    <text class="txt_tip_msg" wx:if="{{couponQty==0}}">这里是空的</text>
+    
+    <!-- 下拉刷新 -->
+    <view class="loading" hidden="{{!couponWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+    <!-- <view class="loading complete" hidden="{{!couponWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view> -->
+    <view></view>
+
+  </block>
+</view>
+
+<!-- 模板 -->
+<template name='temp_discount_coupon'>
+  <view class="view_discount_coupon">
+    <view class='view_left_container'>
+      <view class='view_left_top'>
+        <text class='text_left_top_data'>{{item.coupondefine.amount}}</text>
+        <text class='text_left_top_unit'>元</text>
+      </view>
+      <text class='text_left_bottom'>满{{item.coupondefine.speedamount}}元可用</text>
+    </view>
+    <!-- 中间分割线部分 -->
+    <!-- <view class='view_center_container'>
+      <view class='view_top_circle'></view>
+      <view class='ciew_center_line'></view>
+      <view class='view_bottom_circle'></view>
+    </view> -->
+    <view class='view_right_container'>
+      <view class='view_right_top'>{{item.itemName}}</view>
+      <view class='view_right_center'>{{item.itemDateString}}</view>
+      <view class='view_right_bottom'>{{item.itemDescription}}</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,156 @@
+<!--pages/points_mall/points_mall.wxml-->
+<view class="list_container">
+
+  <block wx:if="{{isListLoading}}">
+    <view class="view_loading" wx:if="{{!listLoadingFail}}"></view>
+    <image class='img_loading_fail' src='/Resource/images/load_fail.png' wx:if="{{listLoadingFail}}"></image>
+    <text class="txt_tip_msg" wx:if="{{listLoadingFail}}">{{reLoadingTipMsg}}</text>
+    <view class="view_login">
+      <button class="btn_reloading" bindtap="tapReload" wx:if="{{listLoadingFail}}">重新加载</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class='view_points_rules_container'>
+      <view class='view_points_rules' bindtap='didTapPointsRules'>
+        <text class='txt_points_rules'>积分规则</text>
+        <image class='img_points_rules' src='/Resource/images/Card/question.png'></image>
+      </view>
+    </view>
+    <view class='view_user_info' wx:if="{{isLogin}}">
+      <view class='view_left'>
+        <image class='img_icon' src='/Resource/images/Card/my_integral.png'></image>
+        <text class='txt_user_info'>{{userInfo.pointAccount.balance}}积分</text>
+      </view>
+      <view class='view_separator'></view>
+      <view class='view_right' bindtap='didTapExchangeRecord'>
+        <image class='img_icon' src='/Resource/images/Card/my_record.png'></image>
+        <text class='txt_user_info'>兑换记录</text>
+      </view>
+    </view>
+    <swiper wx:if="{{bannerList.length != 0}}" class='main_swiper' circular='{{true}}' indicator-dots="{{indicatorDots}}" indicator-color='rgba(255, 255, 255, .4)' indicator-active-color='rgba(255, 255, 255, 1)' autoplay="{{autoplay}}" interval="{{interval}}"
+      duration="{{duration}}">
+      <block wx:for="{{bannerList}}">
+        <swiper-item>
+          <image src="{{domain+item.imgurl}}" data-item="{{item}}" bindtap="didTapBanner" class="slide-image" style='width:690rpx;height:300rpx;border-radius:20rpx;' />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='list_containerTop' wx:else></view>
+
+    <view class="view_list">
+      <block wx:for="{{goodsList}}">
+        <block wx:if="{{item.type == 1}}">
+          <!-- 优惠券 -->
+          <template is="temp_points_coupons" data="{{item, index, domain}}"></template>
+        </block>
+        <block wx:elif="{{item.type == 2}}">
+          <!-- 卡券 -->
+          <template is="temp_points_cards" data="{{item, index, domain}}"></template>
+        </block>
+      </block>
+    </view>
+
+    <view class="loading" hidden="{{!listWxRefreshFtInfo.searchLoading}}">正在载入更多...</view>
+    <!-- <view class="loading complete" hidden="{{!listWxRefreshFtInfo.searchLoadingComplete}}">已加载全部</view> -->
+
+  </block>
+</view>
+
+<!-- 积分支付弹窗 -->
+<view class="view_drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="view_drawer_attr_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_attr_content">
+    <view class="view_drawer_head">
+      <text class='txt_head'>支付详情</text>
+      <image class='img_cancel' src="/Resource/images/mall/cancel.png" bindtap="setModalStatus" data-status="0" />
+    </view>
+    <view class='view_modal_list_container'>
+      <view class='view_modal_item border'>
+        <text class='txt_category'>账户积分</text>
+        <text class='txt_content'>{{userInfo.pointAccount.balance}}积分</text>
+      </view>
+      <view class='view_modal_item border'>
+        <text class='txt_category'>订单金额</text>
+        <text class='txt_content'>{{orderAmount}}积分</text>
+      </view>
+      <view class='view_modal_item'>
+        <text class='txt_category'>需付积分</text>
+        <text class='txt_content red'>{{orderAmount}}积分</text>
+      </view>
+    </view>
+    <view class="cancel" bindtap="didTapPay" data-status="0">
+      <button>确认支付</button>
+    </view>
+  </view>
+</view>
+
+<!--登录蒙层-->
+<view class="view_mask" bindtap="closeLoginAlert" wx:if="{{canShowAlert}}">
+</view>
+<!--登录弹窗内容-->
+<view class="view_alert" animation="{{animationData}}" wx:if="{{canShowAlert}}">
+  <view class="view_item">
+    <text class="txt_prefix">+86</text>
+    <input class="ipt_number" placeholder="请输入手机号" bindinput="finishInputPhone" type="number" maxlength="20" focus='{{focusInputPhone}}' />
+  </view>
+
+  <view class="view_item">
+    <input class="ipt_number" placeholder="请输入验证码" bindinput="finishInputCode" type="number" maxlength="10" focus='{{focusInputValidCode}}' />
+    <button class="btn_get_verify" bindtap="didTapGetVerify" disabled="{{isCounting}}">{{second}}</button>
+  </view>
+  <button class="btn_verify" bindtap="didTapValidate">验证</button>
+</view>
+
+<!-- 优惠券模板 -->
+<template name="temp_points_coupons">
+  <view class="view_goods">
+    <image class='img_goods' src='{{domain+item.coupondefine.imgurl3}}'></image>
+    <view class='view_sold_out_bg' wx:if="{{item.coupondefine.usableqty < 1}}"></view>
+    <view class='view_sold_out' wx:if="{{item.coupondefine.usableqty < 1}}">
+      <text class='txt_sold_out_zh'>已售罄</text>
+      <view class='view_line'></view>
+      <text class='txt_sold_out_en'>SOLD OUT</text>
+    </view>
+    <view class='view_goods_info'>
+      <text class='txt_title'>{{item.displayName}}</text>
+      <text class='txt_price'>{{item.coupondefine.saleintegral}}积分</text>
+      <text class='txt_unit'>/{{item.unit}}</text>
+      <block wx:if="{{item.coupondefine.usableqty < 1}}">
+        <!-- 已售罄 -->
+        <button class="btn_exchange disabled">售罄</button>
+      </block>
+      <block wx:else>
+        <!-- 有库存 -->
+        <button class="btn_exchange"   bindtap="didTapShowModal" data-item="{{item}}" data-status="1">兑换</button>
+      </block>
+    </view>
+  </view>
+</template>
+
+<!-- 卡片模板 -->
+<template name="temp_points_cards">
+  <view class="view_goods">
+    <image class='img_goods' src="{{domain+item.cardStockInfo.imgurl3}}"></image>
+    <view class='view_sold_out_bg' wx:if="{{item.cardStockInfo.usableqty < 1}}"></view>
+    <view class='view_sold_out' wx:if="{{item.cardStockInfo.usableqty < 1}}">
+      <text class='txt_sold_out_zh'>已售罄</text> 
+      <view class='view_line'></view>
+      <text class='txt_sold_out_en'>SOLD OUT</text>
+    </view>
+    <view class='view_goods_info'>
+      <text class='txt_title' wx:if="{{item.cardStockInfo.spec}}">{{item.displayName}}-{{item.cardStockInfo.spec}}</text>
+      <text class='txt_title'  wx:else>{{item.displayName}}</text>
+      <text class='txt_price'>{{item.cardStockInfo.saleintegral}}积分</text>
+      <text class='txt_unit'>/{{item.unit}}</text>
+      <block wx:if="{{item.cardStockInfo.usableqty < 1}}">         
+        <!-- 已售罄 -->
+        <button class="btn_exchange disabled">售罄</button>
+      </block>
+      <block wx:else>
+        <!-- 有库存 -->
+        <button class="btn_exchange"   bindtap="didTapShowModal" data-item="{{item}}" data-status="1">兑换</button>
+      </block>
+    </view>
+  </view>
+</template>

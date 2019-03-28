@@ -1,0 +1,27 @@
+<!--pages/wallet/multi_qrcode/multi_qrcode.wxml-->
+<view class='container'>
+  <view class='view_bg'>
+    <view class='view_title'>{{cardInfo.name}}</view>
+    <view class="view_date">使用有效期：{{cardInfo.createtime}}至{{cardInfo.expirationdate}}</view>
+    <!--二维码-->
+    <view class="view_qrcode">
+      <view class="barnum">{{curCode}}</view>
+      <canvas canvas-id="qrcode" />
+    </view>
+    <view class='view_tips'>扫一扫 即可兑换</view>
+
+  </view>
+
+  <view class="view_selection" hidden='{{ticketList.length < 1}}'>    
+    <!-- 第一张不显示‘上一张’ -->
+    <view class="view_btn {{currentIndex == 0 ? 'disable':''}}" bindtap='didTapPre'>
+      <image class='img_btn.left' src='/Resource/images/wallet/arrow_left_white.png'></image>
+      <text class='txt_btn'>上一张</text>
+    </view>
+    <!-- 最后一张不显示‘下一张’ -->
+    <view class="view_btn.right {{currentIndex >= (ticketList.length-1) ? 'disable':''}}" bindtap='didTapNext'>
+      <text class='txt_btn.left'>下一张</text>
+      <image class='img_btn' src='/Resource/images/wallet/arrow_right_white.png'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<!--pages/wallet/use_appointment_success/use_appointment_success.wxml-->
+<scroll-view scroll-y>
+  <view class='pad_b40'>
+    <view class='pad_t135 flex_c_c'>
+      <image class='w_38 h_38 blcok' src="../../../Resource/images/cashier/success.png"></image>
+      <view class='font_36 color_3 bold left_10'>预约成功</view>
+    </view>
+    <view class='flex_c_c pad_t30'>
+      <view class='w_430 font_24 color_9 center'>请在所选时间7天内领取超过时间未领取需联系客服更换预约时间</view>
+    </view>
+    <view class='pad_t60 flex_c_c'>
+      <view class='whitebg color_4 bo font_32 w_520 flex_c_c pad_t25 pad_b25 radius_50'>完成</view>
+    </view>
+
+    <view class='pad_r30 pad_l30 top_100'>
+      <view class='font_36 bold color_3'>预约信息</view>
+      <view class='font_24 color_9 pad_t20'>城市（门店）</view>
+      <view class='font_28 color_0 pad_t10' style='font-weight:400;'>西南区昆明市同德广场店</view>
+      <view class='font_24 color_9 pad_t20'>兑换时间</view>
+      <view class='font_28 color_0 pad_t10' style='font-weight:400;'>03月20日</view>
+    </view>
+
+    <view class='flex_c_c pad_t60'>
+      <view style='width:690rpx;height:2rpx;background:#F5F5F5;'></view>
+    </view>
+
+
+    <!--/////////////////////////////////////////////////// 文案部分 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+    <view class='pad_t120 pad_r30 pad_l30'>
+      <view class='color_3 font_36 bold  top_80'>兑换须知</view>
+      <view class='color_9 font_24 top_20 justify'>兑换须知兑换须知兑换须知兑换须知兑换须知兑换须知兑换须知 兑换须知</view>
+    </view>
+
+  </view>
+
+
+
+
+</scroll-view>
