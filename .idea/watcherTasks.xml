@@ -9,14 +9,13 @@
       <option name="fileExtension" value="ts" />
       <option name="immediateSync" value="true" />
       <option name="name" value="TypeScript" />
-      <option name="output" value="Output paths to refresh:$FileNameWithoutExtension$.js:$FileNameWithoutExtension$.js.map" />
+      <option name="output" value="$FileNameWithoutExtension$.js:$FileNameWithoutExtension$.js.map" />
       <option name="outputFilters">
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="program" value="$USER_HOME$/AppData/Roaming/npm/tsc.cmd" />
-      <option name="runOnExternalChanges" value="true" />
-      <option name="scopeName" value="All Places" />
+      <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
