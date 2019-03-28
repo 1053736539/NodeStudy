@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <excludedPredefinedLibrary name="NodeStudy/nodeKoaStudy/koaNodeRouter/node_modules" />
+    <excludedPredefinedLibrary name="NodeStudy/nodeKoaStudy/node_modules" />
+    <excludedPredefinedLibrary name="NodeStudy/node_express/node_modules" />
+    <excludedPredefinedLibrary name="NodeStudy/node_koa/node_modules" />
+  </component>
+</project>
