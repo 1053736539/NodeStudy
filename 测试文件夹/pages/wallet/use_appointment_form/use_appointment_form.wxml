@@ -5,9 +5,21 @@
       <view class='w_630 pad_r30 pad_t30 pad_l30 whitebg top_20 radius_10 view_list_item'>
         <view class='font_28 color_49'>城市（门店）</view>
         <view class='whitebg flex_c_bet pad_t20 pad_b30 '>
-          <picker class='flex_1' mode='multiSelector' bindcolumnchange='bindcolumnchange' range="{{regionList}}" range-key="{{index}}" value="{{regionListIndex}}" bindchange="bindRegionChange">
+          <picker class='flex_1' mode='multiSelector' bindcolumnchange='bindcolumnchange' range="{{regionList}}" value="{{regionListIndex}}" bindchange="bindRegionChange">
             <view class="picker font_32  color_0 " wx:if="{{regionList}}">
               {{regionList[0][regionListIndex[0]]}}-{{regionList[1][regionListIndex[1]]}}-{{regionList[2][regionListIndex[2]]}}
+            </view>
+            <view class='font_32 color_c flex_1 ' wx:else>请选择城市（门店）</view>
+          </picker>
+          <view class='flex_1'>
+            <image class="w_60 h_60 block" src='/Resource/images/Me/arrow_right.png' />
+          </view>
+        </view>
+        <view class='font_28 color_49'>城市（门店）3</view>
+        <view class='whitebg flex_c_bet pad_t20 pad_b30 '>
+          <picker class='flex_1' mode='multiSelector' bindcolumnchange='didPickerChange' range="{{arrPickerRange}}" value="{{arrPickerIndex}}" bindcolumnchange="didPickerChange">
+            <view class="picker font_32  color_0 " wx:if="{{arrPickerRange}}">
+              {{selectedArea.area}}-{{selectedCity}}-{{selectedShop}}
             </view>
             <view class='font_32 color_c flex_1 ' wx:else>请选择城市（门店）</view>
           </picker>

@@ -15,395 +15,22 @@ Page({
    */
   data: {
     region: '',
-    regionData: [{
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "深圳",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "11111111",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1,
-
-    }, {
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "广东",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "大萨达撒多",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "大萨达撒多撒多撒",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店大萨达",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店大萨达",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1
-
-    }, {
-      area: "西南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "昆明",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "昆明高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯昆明",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店昆明昆明",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "昆明昆明昆明",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1,
-    }, {
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "深圳",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1,
-    }, {
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "深圳",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1,
-    }, {
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "深圳",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }]
-      },{
-          area: "",
-          areaid: "",
-          city: "深圳546456465",
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: "",
-          status: 1,
-          storeList: [{
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 1,
-            name: "深圳高等金融研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931",
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-            id: 2,
-            name: "copy之神腾讯",
-            remark: "",
-            status: 1,
-            storeid: "2c9d0b86339841d484ebecaed792fd96",
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 3,
-            name: "深圳高研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931"
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 1,
-            name: "深圳高等金融研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931"
-          }]
-        }, {
-          area: "",
-          areaid: "",
-          city: "读好书骄",
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: "",
-          status: 1,
-          storeList: [{
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 1,
-            name: "深圳高等金融研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931",
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-            id: 2,
-            name: "copy之神腾讯",
-            remark: "",
-            status: 1,
-            storeid: "2c9d0b86339841d484ebecaed792fd96",
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 3,
-            name: "深圳高研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931"
-          }, {
-            cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-            id: 1,
-            name: "深圳高等金融研究院店",
-            remark: "",
-            status: 1,
-            storeid: "1b9ecf433ef74a759679b07a867db931"
-          }]
-        }],
-      cityid: "",
-      id: "",
-      status: 1,
-    }, {
-      area: "华南区",
-      areaid: "ac7f6d5445784075986108679ac8814e",
-      city: "",
-      cityAndStoreList: [{
-        area: "",
-        areaid: "",
-        city: "深圳",
-        cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-        id: "",
-        status: 1,
-        storeList: [{
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931"
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc782",
-          id: 2,
-          name: "copy之神腾讯",
-          remark: "",
-          status: 1,
-          storeid: "2c9d0b86339841d484ebecaed792fd96",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 3,
-          name: "深圳高研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }, {
-          cityid: "b9339a71ffac40b7bf37eebdfc6fc78f",
-          id: 1,
-          name: "深圳高等金融研究院店",
-          remark: "",
-          status: 1,
-          storeid: "1b9ecf433ef74a759679b07a867db931",
-        }]
-      }],
-      cityid: "",
-      id: "",
-      status: 1
-    }],
+    regionData: [],
     regionList: [],
     regionListIndex: [0, 0, 0],
-    last_arry_ids:[],
     date: '',
-    nowDate: null
-
+    nowDate: null,
+    arrPickerRange: [],
+    arrPickerIndex: [0, 0, 0],
+    arrArea: [],
+    arrCity: [],
+    arrShop: [],
+    indexOfArea: 0,
+    indexOfCity: 0,
+    indexOfShop: 0,
+    selectedArea: null,
+    selectedCity: null,
+    selectedShop: null
   },
   /****************************************网络请求****************************************/
 
@@ -412,76 +39,77 @@ Page({
     var _this = this;
     var dataBody = {};
     var encStr = basereq.encryptParam(dataBody);
-    // wx.request({
-    //   url: basereq.interfaceName + 'store/getStoreList',
-    //   method: "POST",
-    //   data: {
-    //     data: encStr
-    //   },
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded'
-    //   },
-    //   success: function(res) {
+    wx.request({
+      url: basereq.interfaceName + 'store/getStoreList',
+      method: "POST",
+      data: {
+        data: encStr
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
 
-        // var code = res.data.code.toString();
-        // if (code == "210200") {
-          var ragionList = this.data.regionData;
+        var code = res.data.code.toString();
+        if (code == "210200") {
+          var ragionList = res.data.data;
           var arr = [];
           console.error(1, ragionList)
           // 获取第一个门店地区
           var FirstArea = [];
           var SecondArea = [];
           var EndArea = [];
-          var ids = [];
-          for (var i = 0; i< ragionList.length; i++) {
+          for (var i in ragionList) {
             FirstArea.push(ragionList[i].area)
           }
-          for (var i = 0; i <ragionList[0].cityAndStoreList.length;i++) {
+          for (var i in ragionList[0].cityAndStoreList) {
             SecondArea.push(ragionList[0].cityAndStoreList[i].city)
           }
-          for (var j = 0; j < ragionList[0].cityAndStoreList[0].storeList.length; j++) {
-            EndArea.push(ragionList[0].cityAndStoreList[0].storeList[j].name);
-            ids.push(ragionList[0].cityAndStoreList[0].storeList[j].storeid)
+          for (var j in ragionList[0].cityAndStoreList[0].storeList) {
+            EndArea.push(ragionList[0].cityAndStoreList[0].storeList[j].name)
           }
+          console.log(FirstArea)
+          console.log(SecondArea)
+          console.log(EndArea)
           arr.push(FirstArea, SecondArea, EndArea);
           _this.setData({
             regionData: ragionList,
             regionList: arr,
-            last_arry_ids: ids,
           })
-          console.log(arr,this.data.regionListIndex)
+          console.log(arr);
+          _this.updatePickerRange();
+
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            image: '/Resource/images/cross.png',
+            duration: 3000
+          });
+        }
+      }
+    })
 
 
 
-        // } else {
-        //   wx.showToast({
-        //     title: res.data.msg,
-        //     image: '/Resource/images/cross.png',
-        //     duration: 3000
-        //   });
-        // }
-      },
-    //})
-
-
-
- // },
+  },
 
 
 
   // 选择时间
   didDateChange: function(e) {
+
     this.setData({
-      regionListIndex: e.detail.value,
-      copyIndex: e.detail.value
+      date: e.detail.value
     })
   },
 
   // 地址选择器
   bindRegionChange(e) {
+    console.error(e)
+    this.setData({
+      region: e.detail.value,
+    });
 
-    let storeId = this.data.last_arry_ids[e.detail.value[2]];
-    console.log(storeId)
 
   },
 
@@ -493,60 +121,116 @@ Page({
     var region = this.data.regionList;
     var SecondArea = [];
     var EndArea = [];
-    var ids = [];
     arr[column] = index;
     this.setData({
-      regionListIndex: arr,
-      
+      regionListIndex: arr
     })
 
-  
     if (e.detail.column === 0) {
-      EndArea = [];
-      ids = [];
-      for (var i = 0; i < this.data.regionData[index].cityAndStoreList.length; i++) {
+
+      for (var i in this.data.regionData[index].cityAndStoreList) {
         SecondArea.push(this.data.regionData[index].cityAndStoreList[i].city);
+
       }
-      
-      for (var j = 0; j<this.data.regionData[index].cityAndStoreList[0].storeList.length; j++) {
-        EndArea.push(this.data.regionData[index].cityAndStoreList[0].storeList[j].name);
-        ids.push(this.data.regionData[index].cityAndStoreList[0].storeList[j].storeid);
-        console.log(EndArea)
+      for (var j in this.data.regionData[index].cityAndStoreList[0].storeList) {
+        EndArea.push(this.data.regionData[index].cityAndStoreList[0].storeList[j].name)
       }
 
       region[1] = SecondArea;
       region[2] = EndArea;
+      console.log(index, SecondArea, this.data.regionList,this.data.regionListIndex)
       this.setData({
-        last_arry_ids: ids,
         regionList: region
       })
-      
+
     }
 
     if (e.detail.column === 1) {
-      EndArea = [];
-      ids = [];
-      for (var j = 0; j< this.data.regionData[this.data.regionListIndex[0]].cityAndStoreList[index].storeList.length; j++) {
-        EndArea.push(this.data.regionData[this.data.regionListIndex[0]].cityAndStoreList[index].storeList[j].name)
-        ids.push(this.data.regionData[this.data.regionListIndex[0]].cityAndStoreList[index].storeList[j].storeid);
+      for (var j in this.data.regionData[this.data.regionListIndex[1]].cityAndStoreList[index].storeList) {
+        EndArea.push(this.data.regionData[this.data.regionListIndex[1]].cityAndStoreList[index].storeList[j].name)
       }
 
       region[2] = EndArea;
-
       this.setData({
-        last_arry_ids: ids,
         regionList: region
       })
-      
     }
-
-    
-
-    
   },
 
+  // range update
+  updatePickerRange: function() {
+    // area
+    // lazy load
+    var arrArea = [];
+    if (this.data.arrArea.length <= 0) {
+      var arrAreaData = this.data.regionData;
+      for (var indexArea in arrAreaData) {
+        var item = arrAreaData[indexArea].area;
+        arrArea.push(item);
+      };
+    } else {
+      arrArea = this.data.arrArea;
+    }
+    // city
+    var arrCityData = this.data.regionData[this.data.indexOfArea].cityAndStoreList;
+    var arrCity = [];
+    for (var indexCity in arrCityData) {
+      var item = arrCityData[indexCity].city;
+      arrCity.push(item);
+    };
+    // shop
+    var arrShopData = arrCityData[this.data.indexOfCity].storeList;
+    var arrShop = [];
+    for (var indexShop in arrShopData) {
+      var item = arrShopData[indexShop].name;
+      arrShop.push(item);
+    };
+    // combine
+    var arrPickerRange = [arrArea, arrCity, arrShop];
 
+    this.setData({
+      arrArea: arrArea,
+      arrCity: arrCity,
+      arrShop: arrShop,
+      arrPickerRange: arrPickerRange,
+    });
 
+    this.updateSelectedAreaCityShop();
+  },
+
+  updateSelectedAreaCityShop: function() {
+    // update selected area
+    var indexOfArea = this.data.indexOfArea;
+    var area = this.data.regionData[indexOfArea];
+    var selectedAreaID = area.id;
+
+    // update selected city
+    // update selected shop
+
+    // data set
+    this.setData({
+      selectedArea: area
+    })
+  },
+
+  // picker index changed
+  didPickerChange: function(e) {
+    var column = e.detail.column;
+    var index = e.detail.value;
+    var arrIndex = this.data.arrPickerIndex;
+    arrIndex[column] = index;
+    var indexOfArea = arrIndex[0];
+    var indexOfCity = column === 0 ? 0 : arrIndex[1];
+    var indexOfShop = column <= 1 ? 0 : arrIndex[2];
+    arrIndex = [indexOfArea, indexOfCity, indexOfShop];
+    this.setData({
+      arrPickerIndex: arrIndex,
+      indexOfArea: arrIndex[0],
+      indexOfCity: indexOfCity,
+      indexOfShop: indexOfShop,
+    });
+    this.updatePickerRange();
+  },
 
   /**
    * 生命周期函数--监听页面加载
